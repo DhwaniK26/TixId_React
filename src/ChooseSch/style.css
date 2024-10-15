@@ -1,0 +1,407 @@
+.main {
+    margin: 0px 80px; /* Global margin */  
+}
+
+.grid-class{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* FIRST COL */
+
+.first-col{
+    max-width: 650px;
+}
+
+/* SMALL BOXES */
+
+.smallbox{
+    border: 1px solid #5A637A;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    line-height: 1.4rem;
+}
+
+.smallbox:hover{
+    background-color: #1f396e;
+    color: white;
+}
+
+.smallbox p{
+    color:#5A637A
+}
+
+
+/* SCROLL BOXES */
+
+.datebox{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   width: 95%;
+   margin: 10px 0px;
+   
+}
+
+.datebox button{
+   width: 32px;
+   height: 32px;
+   border: none;
+   margin-top: 1.5rem;
+   background: none;
+   font-size: 20px;
+}
+
+.datebox button:hover{
+    border-radius: 4px;
+    background-color: rgb(183, 180, 180);
+
+}
+
+hr {
+    margin-top: 20px  !important;
+}
+
+/* LOC DIV */
+
+.loc-div{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+
+}
+
+.loc-div h2{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.loc-div .inner-div{
+    position: absolute;
+    top:-15px;
+}
+
+/* LOCATION SCROLL */
+
+.dropdown{
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(252, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px rgb(218, 217, 217) ;
+    width: 285px;
+    height: 350px;
+    overflow: scroll;
+}
+
+.arrowbtn{
+    background: none;
+    border: none;
+    margin: 0px 15px;
+}
+
+.dropdown-inner{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10px;
+}
+
+.dropdown input{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(173, 170, 170);
+    margin:2rem 0px;
+    width: 100%;
+}
+
+.dropdown .cities{
+    margin-left: 20px;
+}
+
+.cities ul{
+    list-style: none;
+}
+
+.cities ul li{
+    border-bottom: 1px solid rgb(224, 223, 223);
+    padding: 15px;
+    cursor: pointer;
+}
+
+/* SEARCH AND DROPDOWNS */
+
+.inp-drop{
+    /* display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin: 40px 0px;
+    height: inherit;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+ .input-container {
+    position: relative;
+    width: 100%; /* Adjust width based on your layout */
+ }
+
+.input-container input{
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #5A637A;
+    padding-left: 20px; /* To avoid text on the left overlapping the input text */
+    padding-right: 20px; /* To avoid text on the right overlapping the input text */
+    box-sizing: border-box;
+}
+
+  /* Left placeholder */
+  .input-container::before {
+    content:' ' ; /* Left-side placeholder */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none; /* Allows interaction with input field */
+  }
+
+  /* Right placeholder */
+  .input-container::after {
+    content: ' '; /* Right-side placeholder */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    width: 30px;  /* Set your desired width */
+    height: 30px; /* Set your desired height */
+    background-image: url('./components/images/search.png');
+    background-size: contain; /* Makes the image fit within the width/height */
+    background-repeat: no-repeat;
+  }
+
+  .dropdown-collect{
+    display: flex; 
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* SMALL DROPDWONS */
+
+  .small-drop{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+  }
+
+  .showAbove{
+    z-index: 10;
+  }
+
+  .small-drop h2{
+    font-weight: 400;
+    font-size: 13px;
+ 
+   }
+
+   .inner-div{
+    position: absolute;
+    z-index: 2;
+    top: -20px;
+    left: 0px;
+    
+  }
+
+  .arrowbtn2{
+    background: none;
+    border: none;
+    margin: 0px 15px 0px 5px;
+  }
+
+
+  /* SMALL DROPDOWNLIST */
+  
+  .small-dropList{
+    padding: 20px;
+    width: 200px;
+    /* height: 100px; */
+    background-color: rgb(252, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px rgb(218, 217, 217) ;
+
+  }
+
+   .small-dropList ul{
+    list-style: none;
+   }
+
+   .small-dropList li, .small-dropList p{
+     margin: 20px 0px;
+     font-size: 13px;
+   }
+
+
+/* SECOND COL */
+
+.sec-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hr-tag{
+    margin-top: 100px !important;
+    width: 100% !important;
+}
+  
+
+@media (max-width:1000px){
+    .grid-class{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .main {
+        margin: 0px 20px; /* Global margin */
+       
+    }
+    .smallbox{
+        border: 1px solid #5A637A;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        line-height: 1.4rem;
+    }
+
+    .smallbox p{
+        font-size: 11px;
+    }
+
+    .smallbox h3{
+        font-size: 12px;
+    }
+
+    .datebox{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px 0px;
+        
+     }
+     
+     .datebox button{
+        width: 32px;
+        height: 32px;
+        border: none;
+        margin-top: 1.5rem;
+        background: none;
+        font-size: 20px;
+     }
+
+    /* LOCATION SCROLL */
+
+   .dropdown{
+       margin: 20px;
+       padding: 10px;
+       background-color: rgb(252, 255, 255);
+       border-radius: 5px;
+       box-shadow: 0px 0px 5px 2px rgb(218, 217, 217) ;
+       width: 225px;
+       height: 300px;
+       overflow: scroll;
+   }
+
+   .dropdown-inner h2{
+     font-size: 15px;
+   }
+   
+   .arrowbtn{
+       background: none;
+       border: none;
+       margin: 0px 15px;
+   }
+   
+   .dropdown-inner{
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+   }
+   
+   .dropdown input{
+       padding: 7px;
+       border-radius: 4px;
+       border: 1px solid rgb(173, 170, 170);
+       margin:1rem 0px;
+       width: 100%;
+   }
+   
+   .dropdown .cities{
+       margin-left: 10px;
+   }
+   
+   .cities ul{
+       list-style: none;
+   }
+   
+   .cities ul li{
+       border-bottom: 1px solid rgb(224, 223, 223);
+       padding: 15px;
+       cursor: pointer;
+   }
+
+   .inp-drop{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 100%;
+    margin: 40px 0px;
+   
+   }
+
+   .inp-drop input{
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #5A637A;
+   }
+   
+   .input-container {
+       position: relative;
+       width: 100%; /* Adjust width based on your layout */
+    }
+
+
+      .dropdown-collect {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0px 10px;
+      }
+
+      .hr-tag{
+        margin-top: 0px !important;
+        width: 100% !important;
+      }
+
+      .sec-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+

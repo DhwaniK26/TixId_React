@@ -1,0 +1,99 @@
+/* THEATRE */
+
+.c-grey{
+    color: #5A637A;
+  
+}
+
+.main-div{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+
+}
+
+.main-div .btn-div{
+    justify-self: end;
+}
+
+.main-div .star-div{
+    display: flex;
+    align-self: center;
+    margin-bottom: 15px;
+}
+
+.main-div p{
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+/* TIMEBOXES */
+
+.show-main{
+   margin-top: 1rem
+}
+.shows{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shows h3{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.shows p{
+    font-size: 18px;
+}
+
+.time-div{
+    display: flex;
+    align-items: center;
+    justify-content: start ;
+    flex-wrap: wrap;
+    width: 370px;
+    margin-top: 15px;
+}
+
+/* SMALL TIME BOX */
+
+.sm-timediv{
+    border: 1px solid #5A637A;
+    border-radius: 3px;
+    padding: 12px 20px;
+    text-align: center;
+    width: 77px;
+    height: 40px;
+    margin:0px 15px 20px 0px;
+    font-weight: 500;
+
+}
+
+.sm-timediv:hover{
+    color: white;
+    background-color: #1A2C50;
+}
+
+
+
+@media (max-width:1000px){
+
+    .main-div p{
+        margin-left: 10px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .shows h3{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .shows p{
+        font-size: 14px;
+    }
+    
+
+}
