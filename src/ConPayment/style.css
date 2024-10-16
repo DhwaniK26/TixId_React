@@ -1,0 +1,72 @@
+.main {
+    margin: 0px 80px; /* Global margin */
+}
+  
+.c-grey{
+    color:#414A63;
+}
+.payment-grid{
+    display: grid;
+    grid-template-columns: 2.1fr 4fr;
+    margin-top: 5.5rem;
+    column-gap: 5rem;
+}
+
+.first-col .heading{
+   margin-top: 10px; 
+   font-weight: 500;
+}
+
+/* DETAIL SECTION */
+
+.detail-div{
+    line-height: 2rem;
+    margin: 1rem 0px
+}
+
+.detail-div p{
+  font-weight: 400;
+}
+
+.detail-div h2{
+    font-weight: 500;
+}
+
+.inner-firstcol{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.hr2{
+    margin: 0px !important ;
+}
+
+.btn-div{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.btn-div img{
+   height: 15px;
+   width: 20px;
+   background-color: none;
+   margin-right: 1rem;
+   border: none;
+}
+
+.btn-div p{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+/* SECOND COL */
+
+.rept-div{
+  width: 500px;
+  height: 655px;
+  box-shadow: 0px 0px 5px 2px rgb(174, 173, 173) ;
+  border-radius: 10px;
+  padding: 2rem;
+}

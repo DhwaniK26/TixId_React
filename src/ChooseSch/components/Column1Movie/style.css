@@ -48,12 +48,12 @@
     font-size: 18px;
 }
 
-.time-div{
+.time-division{
     display: flex;
     align-items: center;
     justify-content: start ;
     flex-wrap: wrap;
-    width: 370px;
+    width: 376px;
     margin-top: 15px;
 }
 

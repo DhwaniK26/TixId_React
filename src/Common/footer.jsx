@@ -11,8 +11,8 @@ import Apple from './images/appleplay.png'
 export default function Footer() {
   return (
     <div>
-      
-   <div class="footer">
+      <hr className='hr-tag'></hr>
+   <div class="footer main">
 
      <div class="footer-col">
        <img src={Logo} />

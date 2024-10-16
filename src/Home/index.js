@@ -7,19 +7,16 @@ import BigMovieBar from '../Common/bigMovieBar'
 import Footer from '../Common/footer'
 import Advertise from './components/advertise'
 import './style.css'
-
 import { useNavigate } from 'react-router-dom';
 
 
 export default function Home() {
 
-  const navigate = useNavigate(); // useNavigate hook for navigation
+  const navigate = useNavigate();
 
   const goToAbout = () => {
-    // navigate('/about'); // Navigate to the 'About' page
-    navigate('/schedule'); // Navigate to the 'About' page
+    navigate('/schedule'); 
   };
-
 
   return (
     <div>
@@ -47,11 +44,8 @@ export default function Home() {
          <BigMovieBar />
         </div>
 
-        <hr className='hr-tag'></hr>
-        
-        <div className='main'>
-          <Footer/>
-        </div>
+        <Footer/>
+       
     </div>
   )
 }

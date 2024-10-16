@@ -27,7 +27,7 @@ export default function TimeBoxes({screenname,price,num}) {
           <p className='c-grey'>{price}</p>
         </div>
 
-        <div className='time-div'>
+        <div className='time-division'>
           {display}
 
         </div>

@@ -104,11 +104,10 @@ export default function Schedule() {
 
      </div>
     </div>
-     <hr className='hr-tag'></hr>
         
-     <div className='main'>
-          <Footer/>
-    </div>
+    
+    <Footer/>
+    
   </div>
   )
 }

@@ -6,6 +6,7 @@
     margin: 4rem 7rem;
 }
 
+
 .time-div{
     display: flex;
     justify-content: space-between;
@@ -54,9 +55,6 @@
     margin: 0px 20px 0px 12px;
 }
 
-
-
-
 /* DROP TIME */
 
 .droptime-div{
@@ -91,6 +89,97 @@
 }
 
 
+/* SEATS SELECTION */
+.all-seats-grid{
+   display: grid ;
+   grid-template-columns: 1fr 1fr;
+   column-gap: 4rem;
+   height: 372px;
+   width: 100%;  
+   justify-content: center;
+
+}
+
+/* SEAT COL ONE*/
+.inner-seats-div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+
+/*SEAT SMALL BOXES*/
+
+.small-seatdiv{
+    width: 40px;
+    height: 36px;
+    border: 1px solid #9DA8BE;
+    border-radius: 6px;
+    text-align: center;
+    padding: 9px;
+    margin: 7px;
+    font-size: 12px;
+    font-weight: 500;
+   
+}
+
+.small-seatdiv:hover{
+    background-color: #1A2C50;
+    color: white;
+}
+/* BLUE STRAP */
+
+.blue-strap{
+    height: 60px;
+    width: 100%;
+    margin: 7rem 0px 4rem 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #118EEA;
+}
+
+.blue-strap p{
+    color: #DADFE8;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pricedisplay-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 10rem;
+}
+
+.pricedisplay-div button:first-child{
+    height: 48px;
+    padding: 12px 8px;
+    margin: 0px 10px;
+    width: 200px;
+    background-color: white;
+    border: 2px solid #5A637A;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.pricedisplay-div button:last-child{
+    height: 48px;
+    padding: 12px 8px;
+    margin: 0px 10px;
+    width: 216px;
+    background-color: #1A2C50;
+    color: rgba(255, 200, 0, 0.89);
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+
+
+
+
 
 
 
@@ -98,4 +187,142 @@
     .main {
         margin: 0px 20px; /* Global margin */
     }
+
+    .seats-div{
+        margin: 9px 1rem;
+    }
+
+    .time-div{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 2rem 0rem;
+        flex-wrap: wrap;
+    }
+    
+    .clock-div span{
+        margin: 0px 8px;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    .clock-div img:first-child{
+        height: 18px;
+        width: 18px;
+    }
+    
+    .clock-div .inner-clock{
+        position: absolute;
+        top: -32px;
+        left: -19px
+    }
+
+    .arrowdown{
+        height:8px ;
+        width:15px;
+        transform: rotate(180deg);
+    }
+
+    .color-div{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .color-div span{
+        margin: 0px 10px 0px 8px;
+        font-size: 12px;
+    }
+    
+    .all-seats-grid{
+        display: grid ;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 4rem;
+        height: 372px;
+        width: 100%;  
+        justify-content: flex-start;
+        overflow-x: auto;
+     }
+    
+     .inner-seats-div{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+       
+    }
+
+    .scrollbar{
+        overflow-x: scroll;
+    }
+  
+    .pricedisplay-div{
+        margin: 2rem 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    .pricedisplay-div div{
+        margin: 0px 1rem;
+
+    }
+    
+    .pricedisplay-div button:first-child{
+        height: 48px;
+        padding: 12px 8px;
+        margin: 7px 10px;
+        width: 120px;
+        background-color: white;
+        border: 2px solid #5A637A;
+        font-size: 1rem;
+        border-radius: 5px;
+    }
+    
+    .pricedisplay-div button:last-child{
+        height: 48px;
+        padding: 12px 8px;
+        margin: 7px 10px;
+        width: 140px;
+        background-color: #1A2C50;
+        color: rgba(255, 200, 0, 0.89);
+        border-radius: 5px;
+        font-size: 17px;
+    }
+
+    /* .inner-pricedisplay{
+        display: flex;
+
+    } */
+
+    .blue-strap{
+        height: 60px;
+        width: 100%;
+        margin: 4rem 0px 2rem 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #118EEA;
+    }
+    
+  
+    /* PRICE BOX */
+     .price-component{
+        line-height: 2.5rem;
+    }
+    
+    .c-grey{
+        color: #5A637A;
+        font-weight: 600;
+    }
+    
+    .price-component h1{
+        font-size: 1.5rem;
+        text-align: center;
+     } 
+
+   
+    
+    
+    
 }

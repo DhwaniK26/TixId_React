@@ -1,6 +1,11 @@
 body{
     font-family: 'Roboto',sans-serif;
 }
+
+.hr-tag{
+    margin-top: 100px !important;
+    width: 100% !important;
+}
   
 * {
     margin: 0;
@@ -146,7 +151,9 @@ body{
 }
 
 /* FOOTER */
-
+.main{
+    margin: 0px 80px;
+}
 .footer{
     display: flex;
     flex-wrap: wrap;
@@ -220,6 +227,22 @@ body{
 .tt p{
     color:#5A637A
 }
+
+
+/* PRICE BOX */
+.price-comp{
+    line-height: 2.5rem;
+}
+
+.c-grey{
+    color: #5A637A;
+    font-weight: 600;
+}
+
+.price-comp h1{
+    font-size: 2.5rem;
+}
+
 
 
 
@@ -366,5 +389,20 @@ body{
     .tt h1{
         font-size: 20px;
     }
+     
+       
+    /* PRICE BOX */
+    .price-component{
+        line-height: 2.3rem;
+    }
+    
+    .c-grey{
+        color: #5A637A;
+        font-weight: 600;
+    }
+    
+    .price-component h1{
+        text-align: center;
+     }
 
 }
