@@ -7,9 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-export default function ScrollBoxes() {
-
-    const divRef = useRef(null);
+export default function ScrollBoxes({handledatedata}) {
   
    //GETTING DATE DATA
 
@@ -39,8 +37,6 @@ export default function ScrollBoxes() {
    for(var i=0; i<=collectdate.length - 1; i++){
      datedata.push({"date": collectdate[i], "weekday": week[i], "flag": false})
    }
-   
-   console.log(datedata)
 
    //--------------------------------------------------------------------------
     
@@ -48,7 +44,7 @@ export default function ScrollBoxes() {
    const todaydate = today.getDate()
    const todayweek = weeknames[today.getDay()]
    const todaymonth =  monthNames[today.getMonth()]
-   const all = todaydate +' ' + todaymonth
+   const all = todaydate + ' ' + todaymonth
 
   const result = datedata.map((elem)=>{
     if(elem.date == all && elem.weekday == todayweek){
@@ -57,7 +53,6 @@ export default function ScrollBoxes() {
     return elem
   })
   
-  console.log(result)
 
    //-----------------------------------------------------------------------
 
@@ -82,11 +77,13 @@ export default function ScrollBoxes() {
       }
    }
 
+   
+
   return (
     <div className='datebox'>
         
         <button onClick={showprev}>  ❮  </button>
-            {show.map((elem)=>  <SmallBoxes date={elem.date} weekday={elem.weekday} 
+            {show.map((elem)=>  <SmallBoxes date={elem.date} weekday={elem.weekday} handledatedata={handledatedata}
             style={{ backgroundColor: elem.flag ? "#1A2C50" : "" ,
             color: elem.flag ? "white" : "black"  
              }} /> )}

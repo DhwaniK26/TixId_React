@@ -5,6 +5,7 @@
 .c-grey{
     color:#414A63;
 }
+
 .payment-grid{
     display: grid;
     grid-template-columns: 2.1fr 4fr;
@@ -12,9 +13,11 @@
     column-gap: 5rem;
 }
 
+
 .first-col .heading{
    margin-top: 10px; 
    font-weight: 500;
+
 }
 
 /* DETAIL SECTION */
@@ -69,4 +72,123 @@
   box-shadow: 0px 0px 5px 2px rgb(174, 173, 173) ;
   border-radius: 10px;
   padding: 2rem;
+}
+
+.inner-rept-div{
+    margin-top: 2rem;
+}
+
+.hr3{
+    margin: 30px 0px !important;
+}
+
+.dark-txt{
+    font-weight: 500;
+}
+
+/*REPT TEXT*/
+
+.reptText{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
+    margin: 1rem 0;
+    color: #333333;
+}
+
+.reptText div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h5{
+    color: #118EEA;
+}
+
+.mode-select img{
+   margin-top: 1rem; 
+   margin-right: 20px;
+}
+
+.warning{
+    color: red;
+    margin-top: 2rem;
+    font-size: 12px;
+}
+
+.sub-btn{
+    margin-top: 1rem;
+    height: 64px;
+    width: 100%;
+    background-color: #1A2C50;
+    padding: 16px 12px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    color: #FFBE00;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+@media (max-width:1000px){
+    .payment-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 3fr;
+        margin-top: 1rem;
+        column-gap: 0rem;
+        row-gap: 1rem;
+    }
+
+    .main {
+        margin: 0px 20px; 
+    }
+
+    .rept-div{
+        width: 100%;
+        height: 655px;
+        box-shadow: 0px 0px 5px 2px rgb(174, 173, 173) ;
+        border-radius: 10px;
+        padding: 2rem;
+      }
+
+    .first-col h2:first-child{
+        font-size: 20px;
+        margin-bottom: 1rem ;
+    }
+
+    .first-col h2:not(:first-child){
+        font-size: 15px;
+    }
+
+    .detail-div{
+        line-height: 2rem;
+        margin: 5px 0px
+    }
+
+    hr{
+       margin:0px 0px !important ;
+    }
+   
+    .btn-div{
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .btn-div img{
+       height: 10px;
+       width: 15px;
+       background-color: none;
+       margin-right: 1rem;
+       border: none;
+    }
+    
+    .btn-div p{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
 }

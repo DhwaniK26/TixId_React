@@ -28,6 +28,16 @@ export default function Schedule() {
      setcityname(namegiven)
   }
 
+  //-------------------------------------------------
+  const t1=["2.00","3.00","4.00","5.00"]
+  const t2=["2.00","3.00","4.00","5.00","2.00","3.00"]
+  const t3=["2.00","3.00","4.00"]
+
+  const t4=["2.00","3.00","4.00"]
+  const t5=["2.00","3.00","4.00"]
+  
+
+
   //----------showtimes-------------------------------
   const navigate = useNavigate(); // useNavigate hook for navigation
 
@@ -35,6 +45,21 @@ export default function Schedule() {
     // navigate('/about'); // Navigate to the 'About' page
     navigate('/seats'); // Navigate to the 'About' page
   };
+
+  //-------recieved date data from child---------------------------
+  const [datedata, setdatedata] = useState(null)   //datedata has the date
+  const handledatedata = (elem)=>{
+     setdatedata(elem)
+  }
+
+  //-------recieved time, price,screentime data from child----------------------------
+
+  const [timePrice, settimePrice] = useState(null)
+  const handletimePrice = (elem)=>{
+    settimePrice(elem)
+  }
+ 
+  //--------
 
   return (
    <div>
@@ -47,7 +72,7 @@ export default function Schedule() {
          
          {/* FIRST GRID COL */}
           <div className='first-col'>
-              <ScrollBoxes />
+              <ScrollBoxes handledatedata={handledatedata} />
               <hr></hr>
               
               <div className='loc-div'>
@@ -77,19 +102,19 @@ export default function Schedule() {
                  <Theatre name={"GRAND INDONESIA CGV"} 
                   button={<SmallButtons text="CGV" color="red" size="13px"/>}/>
 
-                 <TimeBoxes screenname="REGULAR 2D" price="Rp. 2000" num={8}/>
-                 <TimeBoxes screenname="GOLD CLASS 2D" price="Rp. 100.00" num={4}/>
-                 <TimeBoxes screenname="VELVET 2D" price="Rp. 100.00" num={3}/>
+                 <TimeBoxes screenname="REGULAR 2D" price="Rp. 2000" num={t1.length} timearray={t1} handletimePrice={handletimePrice}/>
+                 <TimeBoxes screenname="GOLD CLASS 2D" price="Rp. 100.00" num={t2.length} timearray={t2}/>
+                 <TimeBoxes screenname="VELVET 2D" price="Rp. 100.00" num={t3.length} timearray={t3}/>
 
                  <Theatre name={"MANGGA DUA SQUARE CINÉPOLIS"} 
                   button={<SmallButtons text="cinepolis" color="rgb(2, 2, 131)" size="13px"/>}/>
 
-                 <TimeBoxes screenname="2D" price="Rp. 30.000" num={3}/>
+                 <TimeBoxes screenname="2D" price="Rp. 30.000" num={t4.length} timearray={t4}/>
 
                  <Theatre name={"PLAZA INDONESIA XXI"} 
                   button={<SmallButtons text="XXI" color="linear-gradient(to right, rgb(239, 211, 5) , rgb(183, 156, 3))" size="13px" />}/>
 
-                 <TimeBoxes screenname="2D" price="Rp. 50.000" num={3}/>
+                 <TimeBoxes screenname="2D" price="Rp. 50.000" num={t5.length} timearray={t5}/>
                  
               </div>
               

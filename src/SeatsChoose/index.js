@@ -20,7 +20,23 @@ export default function Seats() {
    const goToAbout = () => {
      navigate('/payment'); 
    };
- 
+
+
+   //getting seat number--------------------------------------------------------
+   
+   const [chair,setchair] = useState([])  //chairs array
+
+   const handlechair = (elem)=> {
+      setchair([...chair,elem])
+      console.log(chair) 
+
+   }
+
+   //total price of seats--------------------------------------------------------
+   
+   //FROM CHOOSE SCHEDULE
+
+
   return (
     <div>
         <div className='main'>
@@ -53,7 +69,7 @@ export default function Seats() {
             {/* SEATS SELECTION */}
            
                <div className='all-seats-grid'>
-                 <SeatCol start={1} end={10}/>
+                 <SeatCol start={1} end={10} handlechair={handlechair}/>
                  <SeatCol start={11} end={20}/>
               </div>
 
@@ -72,7 +88,7 @@ export default function Seats() {
           <div className='pricedisplay-div'>
             
             <Pricebox title="Total" content="Rp. 150.00" size="1.5rem"/>
-            <Pricebox title="Kursi" content="C1,C2,C3" size="1.5rem"/>
+            <Pricebox title="Kursi" content={chair.map((ele)=>{return ele + " "})} size="1.5rem"/>
             
             <div className='inner-pricedisplay'>
               <button onClick={()=>navigate('/schedule')} className='c-grey'>Kembali</button>

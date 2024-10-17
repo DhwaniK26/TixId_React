@@ -3,14 +3,15 @@ import './style.css'
 import SmTimeBox from './smTimeBox'
 
 
-export default function TimeBoxes({screenname,price,num}) {
+export default function TimeBoxes({screenname,price,num, timearray, handletimePrice}) {
   
   const [display, setDisplay] = useState([]);
 
   const h = () => {
     const boxes = []; // Initialize an empty array to store SmTimeBox components
-    for (let i = 0; i < num; i++) { // Use < instead of <= to avoid creating one extra box
-      boxes.push(<SmTimeBox key={i} time="2.00" />); // Push each SmTimeBox component into the array
+    for (let i = 0; i < num; i++) { // Use < instead of <= to avoid creating one extra bo
+      const time = timearray[i] || ''; 
+      boxes.push(<SmTimeBox key={i} time={time} handletimePrice={handletimePrice} price={price} screenname={screenname}/>); // Push each SmTimeBox component into the array
     }
     setDisplay(boxes); // Set the array to the display state
   };
@@ -18,6 +19,8 @@ export default function TimeBoxes({screenname,price,num}) {
   useEffect(() => {
     h();
   }, [num]); 
+
+  //----------------------------------------
 
   return (
     <div className='show-main'>

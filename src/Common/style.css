@@ -21,6 +21,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .ffh{
@@ -255,13 +256,12 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center; 
+        width: 100%;
     }
     .navbar ul:first-child{
         gap: 3rem;
         font-weight: 700;
     }
-
-
 
     .navbar ul:nth-child(2){
         gap: 1rem;
