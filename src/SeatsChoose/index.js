@@ -70,7 +70,7 @@ export default function Seats() {
            
                <div className='all-seats-grid'>
                  <SeatCol start={1} end={10} handlechair={handlechair}/>
-                 <SeatCol start={11} end={20}/>
+                 <SeatCol start={11} end={20} handlechair={handlechair}/>
               </div>
 
           </div>

@@ -9,11 +9,16 @@ import Dana from './component/images/dana.png'
 import Footer from '../Common/footer'
 import Modal from './Modal/modal'
 import PayModal from './Modal/payModal'
+import ModalReturn from './Modal/return'
+
+import { useNavigate } from 'react-router-dom'
 
 export default function Payment() {
 
-  const [showmodal, setshowmodal] = useState(false)
+  const [paymodal, setpaymodal] = useState(false)
+  const [returnmodal,setreturnmodal] = useState(false)
 
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -46,8 +51,9 @@ export default function Payment() {
               <Detailsec detail_title="Tickets" detailname="C8, C9, C10" />
               <hr></hr>
      
-              <div className='btn-div'>
+              <div className='btn-div' onClick={()=>setreturnmodal(!returnmodal)}>
                 <img src={Return}/><p className='c-grey'>Return</p>
+                {returnmodal ? <Modal content={<ModalReturn show={returnmodal} setshow={setreturnmodal} />} /> : " "}
               </div>
       
             </div>
@@ -77,7 +83,8 @@ export default function Payment() {
   
                      <div className='reptText'>
                       <h3>Payment Methods</h3>
-                      <h5>See All</h5>
+                      <h5 onClick={()=>setpaymodal(!paymodal)} style={{cursor:"pointer"}}>See All</h5>
+                      {paymodal ? <Modal content={<PayModal close={paymodal} setclose={setpaymodal} />} /> : ""}
                      </div>
   
                      <div className='mode-select'>
@@ -86,9 +93,7 @@ export default function Payment() {
                      
                      <p className='warning'>*Ticket purchases cannot be cancelled.</p>
   
-                     <button className='sub-btn' onClick={()=>setshowmodal(!showmodal)} >BUY TICKETS</button>
-                     {showmodal ? <Modal content={<PayModal />} /> : ""}
-                     
+                     <button className='sub-btn' onClick={()=>navigate('/success')} >BUY TICKETS</button>
                   </div>
                </div>
   

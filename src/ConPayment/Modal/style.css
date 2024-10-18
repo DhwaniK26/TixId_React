@@ -4,6 +4,14 @@
     align-items: center ;
 }
 
+.mr{
+  margin: 20px 0px 23px 0px;
+}
+
+.c-grey{
+  color: #5A637A;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -21,13 +29,118 @@
     background: white;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
+    
   }
 
 /* PAYMENT MODAL */
 
 .pay-div{
     margin: 10px 0px;
-    width: 415px;
+    
+    width: 350px;
 }
 
+.utility h2{
+   font-weight: 500;
+}
+
+/* TRANSFER */
+
+.trans-div{
+  margin: 0px 8px;
+  display: grid;
+  grid-template-columns: 1.3fr 7fr 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.full-trans{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border-bottom: 2px solid rgb(225, 225, 225); */
+}
+
+.trans-div div:last-child{
+  justify-self: end;
+}
+
+.trans-div img:last-child{
+  height: 20px;
+  width: 20px;
+}
+
+/* RETURN MODAL */
+
+.return-main{
+  width: 614px;
+}
+
+.txt-div{
+  width: 75%;
+  font-size: 17px;
+  margin: 20px 0px;
+}
+
+.txt-div p{
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.mybtn-div{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0px;
+  gap: 1rem;
+}
+
+
+
+/* BTNS */
+.btns{
+  margin: 15px 0px;
+  border:  1px solid #1A2C50;
+  border-radius: 5px;
+  padding: 6px 16px;
+  font-size: 1rem;
+  background-color:none;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+
+@media (max-width:1000px){
+   
+  .pay-div{
+    width: 314px;
+  }
+
+  .trans-div{
+    margin: 0px 8px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    
+  }
+
+  .return-main{
+    width: 314px;
+  }
+
+  .return-main h2{
+    font-size: 20px;
+  }
+
+  .txt-div{
+    width: 100%;
+    font-size: 17px;
+    margin: 20px 0px;
+  }
+
+}

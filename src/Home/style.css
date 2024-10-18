@@ -1,6 +1,15 @@
 .main {
   margin: 0px 80px; /* Global margin */
+  
 }
+
+/* .wrapper {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+} */
+
 
 /* Custom styles for carousel */
 .carousel-container {

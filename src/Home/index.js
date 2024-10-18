@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className='wrapper'>
       <div className='main'>
          <Navbar />
 

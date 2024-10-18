@@ -6,6 +6,8 @@ import About from './About';
 import Schedule from './ChooseSch';
 import Seats from './SeatsChoose';
 import Payment from './ConPayment';
+import Success from './Success';
+import TicketList from './TicketList';
 
 
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
             <Route path="/schedule" element={<Schedule/>} />
             <Route path="/seats" element={<Seats/>} />
             <Route path="/payment" element={<Payment/>} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/ticketList" element={<TicketList />} />
           </Routes>
        </BrowserRouter>
     </div>
