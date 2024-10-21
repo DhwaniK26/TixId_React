@@ -8,6 +8,8 @@ import Seats from './SeatsChoose';
 import Payment from './ConPayment';
 import Success from './Success';
 import TicketList from './TicketList';
+import FinalBill from './FinalBill';
+
 
 
 export default function App() {
@@ -24,6 +26,7 @@ export default function App() {
             <Route path="/payment" element={<Payment/>} />
             <Route path="/success" element={<Success />} />
             <Route path="/ticketList" element={<TicketList />} />
+            <Route path="/finalbill" element={<FinalBill />} />
           </Routes>
        </BrowserRouter>
     </div>
