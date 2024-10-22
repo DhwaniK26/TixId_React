@@ -1,0 +1,106 @@
+.main{
+    margin: 0px 80px;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.c-grey{
+    color:#BDC5D4;
+}
+
+
+.mysearch-div{
+    width: 100%;
+    display: flex;
+    height: inherit;
+    gap:25px;
+    align-items: center;
+}
+
+.input-container {
+    position: relative;
+    width: 578px /* Adjust width based on your layout */
+ }
+
+.input-container input{
+    width: 100%;;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #BDC5D4;
+    padding-left: 20px; /* To avoid text on the left overlapping the input text */
+    padding-right: 20px; /* To avoid text on the right overlapping the input text */
+    box-sizing: border-box;
+}
+
+  /* Left placeholder */
+  .input-container::before {
+    content:' Search Post' ; /* Left-side placeholder */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none; /* Allows interaction with input field */
+  }
+
+  /* Right placeholder */
+  .input-container::after {
+    content: ' '; /* Right-side placeholder */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    width: 30px;  /* Set your desired width */
+    height: 30px; /* Set your desired height */
+    background-image: url('../ChooseSch/components/images/search.png');
+    background-size: contain; /* Makes the image fit within the width/height */
+    background-repeat: no-repeat;
+  }
+
+  .sort-drop{
+    position: relative;
+    cursor: pointer;
+ }
+
+  .sorting-div{
+    background-color: rgb(252, 252, 252);
+     box-shadow: 0px 0px 5px 2px rgb(218, 217, 217) ;
+    padding: 1.2rem 1rem 5px 1rem;
+    position: absolute;
+    border-radius: 5px;
+    left:-20px;
+    width:250px;
+    top:-10px;
+    cursor: pointer;
+  }
+   
+  .sort-lst div{
+    padding: 1rem 2px;
+    cursor: pointer;
+  }
+
+  .sort-lst div:hover{
+    background-color: #c6c9cc;
+  }
+   
+  .sorting-div .arrowdiv{
+    width: 80px
+  }
+
+@media (max-width:1000px) {
+    .main{
+        margin: 0px 20px;
+    }
+
+    .input-container {
+        position: relative;
+        width: 100% /* Adjust width based on your layout */
+     }
+}

@@ -1,0 +1,17 @@
+.main{
+  margin: 0px 80px;
+}
+
+.givespace{
+    height: 2rem;
+}
+
+@media (max-width:1000px) {
+    .main{
+        margin: 0 20px;
+    }
+
+    .givespace{
+        height: 10px;
+    }
+}

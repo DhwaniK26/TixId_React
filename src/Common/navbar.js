@@ -21,7 +21,7 @@ export default function Navbar() {
                 <Link to='/about'>Tiket Saya</Link>  
               </li> 
               <li>
-                <Link to='/contact'>TIX ID News</Link>
+                <Link to='/news'>TIX ID News</Link>
               </li>
             </ul>
             <ul>

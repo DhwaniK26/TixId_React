@@ -29,7 +29,6 @@ export default function Seats() {
    const handlechair = (elem)=> {
       setchair([...chair,elem])
       console.log(chair) 
-
    }
 
    //total price of seats--------------------------------------------------------

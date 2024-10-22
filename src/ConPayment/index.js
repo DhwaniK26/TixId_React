@@ -4,12 +4,13 @@ import Navbar from '../Common/navbar'
 import TitleText from '../Common/titleText'
 import Detailsec from './component/detailsec'
 import Return from './component/images/return.png'
-import ReptText from './component/reptText'
+import ReptText from '../Common/reptText'
 import Dana from './component/images/dana.png'
 import Footer from '../Common/footer'
 import Modal from './Modal/modal'
 import PayModal from './Modal/payModal'
 import ModalReturn from './Modal/return'
+
 
 import { useNavigate } from 'react-router-dom'
 

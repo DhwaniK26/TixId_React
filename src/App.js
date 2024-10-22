@@ -9,7 +9,8 @@ import Payment from './ConPayment';
 import Success from './Success';
 import TicketList from './TicketList';
 import FinalBill from './FinalBill';
-
+import ComingSoon from './ComingSoon';
+import News from './News';
 
 
 export default function App() {
@@ -27,6 +28,8 @@ export default function App() {
             <Route path="/success" element={<Success />} />
             <Route path="/ticketList" element={<TicketList />} />
             <Route path="/finalbill" element={<FinalBill />} />
+            <Route path="/comingSoon" element={<ComingSoon />} />
+            <Route path="/news" element={<News />} />
           </Routes>
        </BrowserRouter>
     </div>

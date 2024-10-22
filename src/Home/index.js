@@ -10,6 +10,7 @@ import './style.css'
 import { useNavigate } from 'react-router-dom';
 
 
+
 export default function Home() {
 
   const navigate = useNavigate();
@@ -37,9 +38,9 @@ export default function Home() {
         
          <div style={{height:"60px"}}></div>
          <GridTexts 
-         title="Akan Datang"
-         subline="Tunggu kehadirannya di bioskop kesayangan kamu!"
-         link="Lihat Semua"/>
+         title="Coming soon"
+         subline="Wait for its presence in your favorite cinema!"
+         link="See All" mypath={()=>navigate('/comingSoon')}/>
 
          <BigMovieBar />
         </div>
