@@ -31,8 +31,8 @@ export default function Home() {
          <div className='space-div'></div>
          <GridTexts 
          title="TIX ID News"
-         subline="Berita tentang dunia perfilman terbaru untuk anda!"
-         link="Lihat Semua"/>
+         subline="The latest news about the world of cinema for you!"
+         link="See All"/>
          
          <SmallMovieBars/>
         

@@ -1,0 +1,15 @@
+.bglogin{
+    background: url('./components//images/b.png');
+    padding: 3rem;
+    height: inherit;
+}
+
+@media (max-width:1000px) {
+    .bglogin{
+        background: url('./components//images/b.png');
+        padding: 3rem 1rem;
+        height: 100vh;
+        object-fit: contain;
+    }
+    
+}

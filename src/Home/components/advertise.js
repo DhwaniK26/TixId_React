@@ -62,8 +62,8 @@ const NextArrow = ({ onClick }) => {
                     
                     <div className="inner-s1">
                         <div>
-                            <h4>SEWA/BELI FILM dan</h4>
-                            <h4>SERIAL di TIX ID sekarang</h4>
+                            <h4>RENT/BUY MOVIES and</h4>
+                            <h4>SERIAL on TIX ID now</h4>
                             
                             <div className="inner-inner-s1">
                                 <img src={World} className="img-world" />
@@ -84,15 +84,15 @@ const NextArrow = ({ onClick }) => {
 
                 <div className="s2">
                     <img src={Tx2} className="logodiv"/>
-                    <h5>Download Sekarang !</h5>
+                    <h5>Download Now !</h5>
                     <div>
                       <img src={Apple} className="playbtn" /><span> <img src={Google}  className="playbtn"/></span>
                     </div>
                 </div>
 
                 <div class="s3">
-                    <h1>Pesan Tiket Film di TIX ID</h1>
-                    <p>#BebasAntri</p>
+                    <h1>Order Movie Tickets at TIX ID</h1>
+                    <p>#QueueFree</p>
                 </div>
 
             </Slider>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import '../style.css'
 
-export default function Circlebtn({text,flag}) {
+export default function Circlebtn({text,bor,fontcolor}) {
 
-  const [select,setselect] = useState(null)
+  const [select,setselect] = useState(false)
     
   return (
     <div>
-      <button className={`circlebtn ${select === flag  ? 'selectbtn' : ''}`} onClick={()=>setselect(flag)}>{text}</button>
+      <button className={`circlebtn ${select ? 'selectbtn' : ''}`} style={{border:bor,color:fontcolor}} onClick={()=>setselect(!select)}>{text}</button>
     </div>
   )
 }

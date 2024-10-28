@@ -41,7 +41,7 @@ export default function Seats() {
         <div className='main'>
           <Navbar/>
           
-          <TitleText title="PILIH KURSI" subtitle="Pilih kursi yang akan kamu tempati selama pemutaran film"/>
+          <TitleText title="CHOOSE A SEAT" subtitle="Choose the seat you will occupy during the film screening."/>
           
           <div className='seats-div'>
 
@@ -58,9 +58,9 @@ export default function Seats() {
                </div>
 
               <div className='color-div'>
-                <ColorBoxes bgcolor="#1A2C50" border="none"/><span>Tersa</span>
-                <ColorBoxes bgcolor="white" border="1px solid grey"/><span>Kursi Kosong</span>
-                <ColorBoxes bgcolor="#118EEA" border="none"/><span>Dipilih</span> 
+                <ColorBoxes bgcolor="#1A2C50" border="none"/><span>Theresa</span>
+                <ColorBoxes bgcolor="white" border="1px solid grey"/><span>Empty Chair</span>
+                <ColorBoxes bgcolor="#118EEA" border="none"/><span>Chosen</span> 
               </div>
 
             </div>
@@ -79,7 +79,7 @@ export default function Seats() {
         {/* BLUE STRAP */}
 
         <div className='blue-strap'>
-           <p>Layar Bioskop Disini</p>
+           <p>Cinema Screen Here</p>
         </div>
 
         {/* PRICE SECTION */}
@@ -90,8 +90,8 @@ export default function Seats() {
             <Pricebox title="Kursi" content={chair.map((ele)=>{return ele + " "})} size="1.5rem"/>
             
             <div className='inner-pricedisplay'>
-              <button onClick={()=>navigate('/schedule')} className='c-grey'>Kembali</button>
-              <button onClick={goToAbout}>KONFIRMASI</button>
+              <button onClick={()=>navigate('/schedule')} className='cc-grey'>Return</button>
+              <button onClick={goToAbout}>CONFIRM</button>
             </div>
 
           </div>

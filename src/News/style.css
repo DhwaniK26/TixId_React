@@ -7,10 +7,19 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .c-grey{
     color:#BDC5D4;
+}
+
+.c-dgrey{
+  color: #999;
+}
+
+.c-ddgrey{
+  color:#414A63;
 }
 
 
@@ -20,6 +29,7 @@
     height: inherit;
     gap:25px;
     align-items: center;
+    margin:1.5rem 0px;
 }
 
 .input-container {
@@ -94,13 +104,130 @@
     width: 80px
   }
 
-@media (max-width:1000px) {
+  .btn-collect{
+    width: 791px;
+    margin: 1.5rem 0px;
+  }
+
+  /* MOVIE GRID */
+  .mov-grid{
+    margin: 4rem 0px 3rem 0px;
+    display: flex;
+    gap:4rem;
+    height: 380px;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-direction: row-reverse; */
+  }
+
+  .mov-grid-first {
+    width: 585px;
+    height: 100%;
+  }
+
+  .mov-grid-first img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    
+  }
+
+
+  .mov-grid-sec{
+    
+    width: 519px;
+  }
+
+  .mov-grid-sec h1{
+    font-size: 40px;
+    line-height: 2.7rem;
+    font-weight: 500;
+    margin: 1rem 0px;
+  }
+  
+  .sec-date{
+    font-size: 25px;
+    margin: 2rem 0px;
+  }
+
+  .mov-bars{
+    margin: 6rem 0px;
+  }
+
+
+@media (max-width:700px) {
     .main{
         margin: 0px 20px;
     }
+
+    .d-flex{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+  }
 
     .input-container {
         position: relative;
         width: 100% /* Adjust width based on your layout */
      }
+
+     .btn-collect{
+      width: 100%;
+      margin: 1.5rem 0px;
+    }
+
+    .mov-grid{
+      margin: 4rem 0px 3rem 0px;
+      display: flex;
+      flex-direction: column;
+      gap:0rem;
+      height: 570px;
+      align-items: start;
+      justify-content: start;
+      /* flex-direction: row-reverse; */
+    }
+  
+    .mov-grid-first {
+      width: 350px;
+      height: 100%;
+    }
+  
+    .mov-grid-first img{
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      
+    }
+  
+    .mov-grid-sec{
+      width: 100%;
+    }
+  
+    .mov-grid-sec h1{
+      font-size: 30px;
+      line-height: 2.7rem;
+      font-weight: 500;
+      margin: 0.5rem 0px;
+    }
+    
+    .sec-date{
+      font-size: 20px;
+      margin: 2rem 0px;
+    }
+    
+    .sorting-div{
+      background-color: rgb(252, 252, 252);
+       box-shadow: 0px 0px 5px 2px rgb(218, 217, 217) ;
+      padding: 1.2rem 1rem 5px 1rem;
+      position: absolute;
+      border-radius: 5px;
+      right:10px;
+      width:100px;
+      top:-10px;
+      cursor: pointer;
+      text-align: end;
+    }
+    
 }

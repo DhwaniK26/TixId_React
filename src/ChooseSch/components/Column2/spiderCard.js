@@ -12,13 +12,13 @@ export default function SpiderCard() {
        <div className='lst'>
         <div>
             <p>Genre</p>
-            <p>Durasi</p>
-            <p>Sutradara</p>
-            <p>Rating Usia</p>
+            <p>Duration</p>
+            <p>Director</p>
+            <p>Age Rating</p>
         </div>
         <div>
             <p>Action</p>
-            <p>2 jam 28 manit</p>
+            <p>2 hours 28 minutes</p>
             <p>Jon watts</p>
             <p>SU</p>
         </div>

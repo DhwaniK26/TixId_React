@@ -20,9 +20,9 @@ export default function Footer() {
 
      <div class="footer-col">
       <ul>
-        <li>Perusahaan</li> 
-          <li>Kontak Kami</li>
-          <li>Tentang</li>
+          <li>Company</li> 
+          <li>Contact Us</li>
+          <li>About</li>
           <li>Partner</li>
 
       </ul>
@@ -30,22 +30,22 @@ export default function Footer() {
 
      <div class="footer-col">
       <ul>
-        <li>Seputar</li>
+        <li>About</li>
         <li>TIX ID News</li>
-        <li>Bioskop</li>
-        <li>Tiket Saya</li>
-        <li>Pembrayaran</li>
-        <li>Cicilan</li>
+        <li>Cinema</li>
+        <li>My Ticket</li>
+        <li>Shipping</li>
+        <li>Instalment</li>
       </ul>
      </div>
      
      <div class="footer-col">
       <ul>
-        <li>Dukungan</li>
-        <li>Pusat Bantuan</li>
-        <li>Kebijakan Privasi</li>
+        <li>Support</li>
+        <li>Help Center</li>
+        <li>Privacy Policy</li>
         <li>FAQ</li>
-        <li>Syarat dan Kententuan</li>
+        <li>Terms and Conditions</li>
         <li>Update Covid-19</li>
       </ul> 
      </div>
@@ -56,7 +56,7 @@ export default function Footer() {
          <div>
           <img src={Insta}/><img src={Twitter}/><img src={Fb}/>
          </div>
-         <p>Download Aplikasi TIX ID</p>
+         <p>Download the TIX ID Application</p>
          <div>
           <img src={Google} class="playbtn"/><img src={Apple} class="playbtn"/>
          </div>

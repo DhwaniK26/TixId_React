@@ -11,15 +11,15 @@ export default function SmallMovieBars() {
     <div class="three">
 
       <SMovBrMovies movieposter={Poster1} 
-      title="Spider-Man: No Way Home Rilis Trailer Terbaru."
+      title="Spider-Man: No Way Home Releases New Trailer."
       date="08 Nov 2021 | TIX ID"/>
 
       <SMovBrMovies movieposter={Poster2} 
-      title="Fakta Film Yowis Ben Finale Yang Perlu Kamu Ketahui Sebelum Nonton!."
+      title="Facts About the Movie Yowis Ben Finale That You Need to Know Before Watching!"
       date="09 Nov 2021 | TIX ID"/>
 
       <SMovBrMovies movieposter={Poster3} 
-      title="Ghostbusters: Afterlife Hadir Menampilkan Variasi Hantu Baru"
+      itle="Ghostbusters: Afterlife Arrives Featuring New Ghost Variations"
       date="21 Nov 2021 | TIX ID"/>
 
     </div>

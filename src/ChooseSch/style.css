@@ -5,6 +5,7 @@
 .grid-class{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 5rem;
 }
 
 /* FIRST COL */
@@ -147,12 +148,12 @@ hr {
     justify-content: space-between;
  }
 
- .input-container {
+ .input-container-f {
     position: relative;
     width: 100%; /* Adjust width based on your layout */
  }
 
-.input-container input{
+.input-container-f input{
     width: 100%;
     padding: 12px 15px;
     border-radius: 5px;
@@ -163,7 +164,7 @@ hr {
 }
 
   /* Left placeholder */
-  .input-container::before {
+  .input-container-f::before {
     content:' ' ; /* Left-side placeholder */
     position: absolute;
     left: 10px;
@@ -174,7 +175,7 @@ hr {
   }
 
   /* Right placeholder */
-  .input-container::after {
+  .input-container-f::after {
     content: ' '; /* Right-side placeholder */
     position: absolute;
     right: 10px;
@@ -194,6 +195,7 @@ hr {
     justify-content:center;
     align-items: center;
     width: 100%;
+    margin-left: 1rem;
   }
 
   /* SMALL DROPDWONS */
@@ -264,9 +266,27 @@ hr {
     margin-top: 100px !important;
     width: 100% !important;
 }
+
+@media (min-width: 1000px) and (max-width: 1277px) {
+    .smallbox{
+        border: 1px solid #5A637A;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        line-height: 1.4rem;
+    }
+
+    .smallbox p{
+        font-size: 11px;
+    }
+
+    .smallbox h3{
+        font-size: 12px;
+    }
+}
   
 
-@media (max-width:1000px){
+@media (max-width:950px){
     .grid-class{
         display: grid;
         grid-template-columns: 1fr;

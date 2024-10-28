@@ -38,7 +38,7 @@ const Carousel = ({nextpage}) => {
     prevArrow: <PrevArrow />, // Pass custom prev arrow
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 1, // 1 slide on mobile
         },

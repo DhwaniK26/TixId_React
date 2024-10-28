@@ -89,7 +89,7 @@ export default function Schedule() {
               </div>
 
               <div className='inp-drop'>
-                <div className='input-container'>
+                <div className='input-container-f'>
                   <input type='text'  />
                 </div>
                 <div className='dropdown-collect'>

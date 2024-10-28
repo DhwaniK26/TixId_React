@@ -168,6 +168,20 @@ hr{
     overflow-y: scroll;
 }
 
+@media (max-width:1024px){
+    .movlst-outer{
+        width: 670px;
+        margin-top: 20px;
+    }
+    
+    .mygrid-div{
+        display: grid;
+        grid-template-columns: 1.3fr 4fr;
+    }
+    
+
+}
+
 
 @media (max-width:900px) {
    .main{
@@ -188,7 +202,7 @@ hr{
 
   .circlebtn{
     border:1px solid #000000;
-    padding: 8px 17px;
+    padding: 8px 13px;
     font-size: 1rem;
     border-radius: 23px;
     background:none;

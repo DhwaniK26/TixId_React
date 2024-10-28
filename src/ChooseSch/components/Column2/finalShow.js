@@ -13,9 +13,9 @@ export default function FinalShow({nextpage}) {
         <h3>14.40</h3>
       </div>
 
-      <p className='c-grey small-text'>* Pemilihan kursi dapat dilakukan setelah ini</p>
+      <p className='c-grey small-text'>* Seat selection can be done after this</p>
 
-      <button onClick={nextpage} className='mybutton'>BELI SEKARANG</button>
+      <button onClick={nextpage} className='mybutton'>BUY NOW</button>
     </div>
   )
 }
