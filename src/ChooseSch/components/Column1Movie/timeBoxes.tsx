@@ -7,10 +7,10 @@ interface TimeType{
   price:string,
   num:number,
   timearray:string[],
-  handletimePrice: (data: {})=>void
+  // handletimePrice: (data: {})=>void
 }
 
-export default function TimeBoxes({screenname,price,num, timearray, handletimePrice} : TimeType) {
+export default function TimeBoxes({screenname,price,num, timearray} : TimeType) {
   
   const [display, setDisplay] = useState<any | null>([]);
 
@@ -18,7 +18,7 @@ export default function TimeBoxes({screenname,price,num, timearray, handletimePr
     const boxes = []; // Initialize an empty array to store SmTimeBox components
     for (let i = 0; i < num; i++) { // Use < instead of <= to avoid creating one extra bo
       const time = timearray[i] || ''; 
-      boxes.push(<SmTimeBox key={i} time={time} handletimePrice={handletimePrice} price={price} screenname={screenname}/>); // Push each SmTimeBox component into the array
+      boxes.push(<SmTimeBox key={i} time={time} price={price} screenname={screenname}/>); // Push each SmTimeBox component into the array
     }
     setDisplay(boxes); // Set the array to the display state
   };

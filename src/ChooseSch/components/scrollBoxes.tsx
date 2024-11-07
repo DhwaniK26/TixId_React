@@ -6,11 +6,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-interface ScrollType{
-  handledatedata : (date : string) => void
-}
+// interface ScrollType{
+//   handledatedata : (date : string) => void
+// }
 
-export default function ScrollBoxes({handledatedata} : ScrollType) {
+export default function ScrollBoxes() {
   
    //GETTING DATE DATA
 
@@ -86,7 +86,7 @@ export default function ScrollBoxes({handledatedata} : ScrollType) {
     <div className='datebox'>
         
         <button onClick={showprev}>  ❮  </button>
-            {show.map((elem)=>  <SmallBoxes date={elem.date} weekday={elem.weekday} handledatedata={handledatedata}
+            {show.map((elem)=>  <SmallBoxes date={elem.date} weekday={elem.weekday} 
             style={{ backgroundColor: elem.flag ? "#1A2C50" : "" ,
             color: elem.flag ? "white" : "black"  
              }} /> )}
