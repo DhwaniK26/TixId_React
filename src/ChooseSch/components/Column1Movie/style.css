@@ -42,10 +42,12 @@
 .shows h3{
     font-size: 24px;
     font-weight: 500;
+    color: #5A637A;
 }
 
 .shows p{
     font-size: 18px;
+    color: #5A637A;
 }
 
 .time-division{

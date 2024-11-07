@@ -13,7 +13,7 @@ import Article from './Article';
 import Signup from './Signup';
 import Login from './Login';
 import Email from './Signup/email';
-import { AuthContext, AuthProvider } from './loginContext';
+import { AuthContext, AuthProvider } from './Context/loginContext';
 
 export default function App() {
   

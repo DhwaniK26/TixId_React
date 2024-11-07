@@ -47,6 +47,7 @@ body{
     font-weight: 500;
     font-size: 17px;
     line-height: 10px;
+    cursor: pointer;
 
 }
 
@@ -89,7 +90,7 @@ body{
 
 .three{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     margin: 50px 0px;
 }
@@ -601,7 +602,47 @@ body{
        background-color: white;
        font-size: 1rem;
     }
+     
+
+    /* BIG MOVIE BARS */
+
+    .threebig{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        margin: 20px 0px;
+        overflow-x: scroll;
+        width: inherit;
+        justify-content: start;
+    }
     
+    .threebig-inner{
+        width: inherit;
+        height: 642px;
+        margin:  20px 2px;
+    
+    }
+    
+    .threebig-inner img{
+        border-radius: 15px;
+        width: 380px;
+        height: 502px;
+    }
+    
+    .threebig-inner .text-div2{
+        margin: 40px 0px;
+    }
+    
+    .threebig-inner .text-div2 h2{
+        font-weight: 500;
+    }
+    
+    .text-div2 ul{
+        list-style-type: none;
+        display: flex;
+        margin:25px 0px;
+        justify-content: flex-start;
+    }
 
     
 }

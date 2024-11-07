@@ -2,8 +2,8 @@
     margin: 0px 80px;
 }
 
-.c-grey{
-  color: #5A637A;
+.c1-grey{
+  color: #4f5462;
   font-weight: 400;
 }
 
@@ -100,7 +100,7 @@ hr{
     margin-top: 2rem;
 }
 
-.locsign-div{
+.locsign-div2{
    
     display: flex;
     align-items: center;
