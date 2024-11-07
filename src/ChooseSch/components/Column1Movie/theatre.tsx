@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.css'
 import SmallButtons from '../../../Common/Buttons/smallButtons'
 import Star from '../images/star.png'
 
+
 interface TheatType{
   name: string,
   button: JSX.Element
+  // handletheatre:(data : any)=>void
 }
 
 
 export default function Theatre({name,button} : TheatType) {
+
+  // useEffect(()=>{
+  //   handletheatre(name)
+  // },[])
+
   return (
     <div>
 

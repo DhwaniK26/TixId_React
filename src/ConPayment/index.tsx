@@ -10,16 +10,29 @@ import Footer from '../Common/Footer/footer'
 import Modal from './Modal/modal'
 import PayModal from './Modal/payModal'
 import ModalReturn from './Modal/returnModal'
-
-
 import { useNavigate } from 'react-router-dom'
+import { useSelector, UseSelector } from 'react-redux'
 
 export default function Payment() {
 
   const [paymodal, setpaymodal] = useState(false)
   const [returnmodal,setreturnmodal] = useState(false)
-
   const navigate = useNavigate()
+
+  const moviename = useSelector((state : any)=>state.home.selectedMovie)
+  const {date, weekday, screenName, time, money, year} = useSelector((state : any)=>state.chooseSch)
+  const seats = useSelector((state : any)=>state.seats.seats)
+
+  const len = seats.length
+
+ 
+  //---------------data------------------------------
+  const serData = {service : 3, promo : 70}
+
+  //--------------total payment-----------------
+  const totalpay = ((money*len) + (serData.service * len) ) - serData.promo
+
+  
 
   return (
     <div>
@@ -36,20 +49,20 @@ export default function Payment() {
             <div className='first-col'>
               <h2 className='heading'>Schedule Details</h2>
               
-              <Detailsec detail_title="Movie title" detailname="SPIDERMAN - NO WAY HOME" />
+              <Detailsec detail_title="Movie title" detailname={moviename.name} />
               <hr></hr>
   
-              <Detailsec detail_title="Date" detailname="THURSDAY, DECEMBER 17, 2021" />
+              <Detailsec detail_title="Date" detailname={`${weekday} ${date}, ${year}`}/>
               <hr></hr>
   
               <div className='inner-firstcol'>
-                <Detailsec detail_title="Class" detailname="REGULAR 2D" />
-                <Detailsec detail_title="Time" detailname="14:40" />
+                <Detailsec detail_title="Class" detailname={screenName} />
+                <Detailsec detail_title="Time" detailname={time} />
               </div>
   
               <hr className='hr2'></hr>
               
-              <Detailsec detail_title="Tickets" detailname="C8, C9, C10" />
+              <Detailsec detail_title="Tickets" detailname={seats}/>
               <hr></hr>
      
               <div className='btn-div' onClick={()=>setreturnmodal(!returnmodal)}>
@@ -68,17 +81,17 @@ export default function Payment() {
                   <div className='inner-rept-div'>
   
                      <h4>Transaction Details</h4>
-                     <ReptText seattype="REGULAR" price="Rp. 50.000" X="X3"/>
-                     <ReptText  seattype="SERVICE FEE" price="Rp.3.000" X="X3"/>
+                     <ReptText seattype="REGULAR" price={`Rs. ${money}`} X={`X${len}`}/>
+                     <ReptText  seattype="SERVICE FEE" price={`Rs. ${serData.service}`}  X={`X${len}`}/>
   
                      <hr className='hr3'></hr>
   
                      <h4>Promo & Voucher</h4>
-                     <ReptText seattype="PROMO TIX ID" price=" -  Rp. 50.000" />
+                     <ReptText seattype="PROMO TIX ID" price={`- Rs. ${serData.promo}`} />
                      
                      <hr className='hr3'></hr>
      
-                     <ReptText fontWeight={600} seattype="Total Payment" price=" -  Rp. 50.000" />
+                     <ReptText fontWeight={600} seattype="Total Payment" price={`- Rs. ${totalpay}`} />
   
                      <hr ></hr>
   

@@ -7,12 +7,26 @@ import ReptText from '../Common/TitlesNText/reptText'
 import Return from '../ConPayment/component/images/return.png'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../Common/Footer/footer'
+import { useSelector, UseSelector } from 'react-redux'
 
 export default function FinalBill() {
   
   const [circles, setCircles] = useState<JSX.Element[]>([]);
   const len = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
+  
+  const moviename = useSelector((state:any)=>state.home.selectedMovie)
+  const {date, theatreName, screenName, time, money, year} = useSelector((state : any)=>state.chooseSch)
+  const seats = useSelector((state : any)=>state.seats.seats)
+
+  const seatlen = seats.length
+
+   //---------------data------------------------------
+   const serData = {service : 3, promo : 70}
+
+   //--------------total payment-----------------
+   const totalpay = ((money*seatlen) + (serData.service * seatlen) ) - serData.promo
+  
 
   const updateCircles = () => {
     if (len.current) {
@@ -48,24 +62,24 @@ export default function FinalBill() {
             <h2 className='t'>Transaction Details</h2>
 
             <div className='inner-blue '>
-              <h2 className='w-500'>Spiderman : No way home</h2>
+              <h2 className='w-500'>{moviename.name}</h2>
 
               <div className='blue-grid'>
 
                 <div className='blue-grid-first'>
                   <p className='c-grey'>Location</p>
-                  <p>Grand Indonesia CGV</p>
+                  <p>GRAND CSV</p>
                   <br></br>
                   
                   <div className='blue-grid-inner'>
                    <div>
                       <p className='c-grey'>Date</p>
-                      <p>16 December 2021</p>
+                      <p>{date} , {year}</p>
                    </div>
 
                    <div>
                       <p className='c-grey'>Time</p>
-                      <p>14:00</p>
+                      <p>{time}</p>
                    </div>
                   </div>
 
@@ -74,7 +88,7 @@ export default function FinalBill() {
                 <div className='blue-grid-sec'>
                   <div>
                     <p className='c-grey'>Class</p>
-                    <p>Regular 3D</p>
+                    <p>{screenName}</p>
                     <br></br>
                   </div>
 
@@ -99,7 +113,7 @@ export default function FinalBill() {
                     <p>Password Key</p><p>123343525</p>
                   </p>
                   <p className='inner-yellow-first'>
-                    <p>Seats</p><p>123343525</p>
+                    <p>Seats</p><p>{seats}</p>
                   </p>
                 </div>
   
@@ -120,14 +134,14 @@ export default function FinalBill() {
             <h2>Purchase Details</h2>
 
             <div>
-              <ReptText seattype={"NO ORDER"} price={"Rp. 70.000"} X={"X3"} fontWeight={400}/>
-              <ReptText seattype={"REGULAR SEAT"} price={"Rp. 70.000"} X={"X3"} fontWeight={400}/>
-              <ReptText seattype={"SERVICE FEE"} price={"Rp. 3.000"} X={"X3"} fontWeight={400}/>
-              <ReptText seattype={"PROMO TIX ID"} price={"-Rp. 50.000"} fontWeight={400}/>
+              <ReptText seattype={"NO ORDER"} price={"Rs. 70.000"} X={"X3"} fontWeight={400}/>
+              <ReptText seattype={"REGULAR SEAT"} price={`Rs. ${money}`} X={`X${seatlen}`} fontWeight={400}/>
+              <ReptText seattype={"SERVICE FEE"} price={`Rs. ${serData.service}`}  X={`X${seatlen}`} fontWeight={400}/>
+              <ReptText seattype={"PROMO TIX ID"} price={`- Rs. ${serData.promo}`} fontWeight={400}/>
 
               <hr></hr>
 
-              <ReptText seattype={"TOTAL PAYMENT"} price={"Rp. 70.000"} fontWeight={600}/>
+              <ReptText seattype={"TOTAL PAYMENT"} price={`- Rs. ${totalpay}`} fontWeight={600}/>
 
               <div className='btn-div'onClick={()=>navigate('/ticketList')} >
                 <img src={Return}/><p>Return</p>

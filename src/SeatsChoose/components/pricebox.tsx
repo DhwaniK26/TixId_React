@@ -3,7 +3,7 @@ import '../style.css'
 
 interface PriceType{
   title:string,
-  content:string,
+  content:any,
   size:string
 }
 export default function Pricebox({title, content, size} : PriceType) {

@@ -41,9 +41,10 @@ export default function Schedule() {
   
 
   //-------recieved date data from child---------------------------
-  // const [datedata, setdatedata] = useState<any | null>(null)   //datedata has the date
-  // const handledatedata = (elem : string)=>{
-  //    setdatedata(elem)
+  // const [theatre, settheatre] = useState<any | null>(null)   //datedata has the date
+  // const handletheatre = (elem : string)=>{
+  //    settheatre(elem)
+  //    console.log("theatre name is heree",elem)
   // }
 
   //-------recieved time, price,screentime data from child----------------------------
@@ -96,21 +97,22 @@ export default function Schedule() {
               <div>
       
                  <Theatre name={"GRAND INDONESIA CGV"} 
-                  button={<SmallButtons text="CGV" color="red" size="13px"/>}/>
+                  button={<SmallButtons text="CGV" color="red" size="13px"/>} />
 
-                 <TimeBoxes screenname="REGULAR 2D" price="Rp. 2000" num={t1.length} timearray={t1} />
-                 <TimeBoxes screenname="GOLD CLASS 2D" price="Rp. 100.00" num={t2.length} timearray={t2} />
-                 <TimeBoxes screenname="VELVET 2D" price="Rp. 100.00" num={t3.length} timearray={t3}/>
+                 <TimeBoxes screenname="REGULAR 2D" price={200} num={t1.length} timearray={t1} theatrename={"GRAND INDONESIA CGV"} />
+                 <TimeBoxes screenname="GOLD CLASS 2D" price={200} num={t2.length} timearray={t2}  theatrename={"GRAND INDONESIA CGV"} />
+                 <TimeBoxes screenname="VELVET 2D"  price={200}  num={t3.length} timearray={t3}  theatrename={"GRAND INDONESIA CGV"} />
 
                  <Theatre name={"MANGGA DUA SQUARE CINÉPOLIS"} 
                   button={<SmallButtons text="cinepolis" color="rgb(2, 2, 131)" size="13px"/>}/>
 
-                 <TimeBoxes screenname="2D" price="Rp. 30.000" num={t4.length} timearray={t4} />
+                 <TimeBoxes screenname="2D"  price={200} num={t4.length} timearray={t4}  theatrename={"MANGGA DUA SQUARE CINÉPOLIS"} />
 
                  <Theatre name={"PLAZA INDONESIA XXI"} 
-                  button={<SmallButtons text="XXI" color="linear-gradient(to right, rgb(239, 211, 5) , rgb(183, 156, 3))" size="13px" />}/>
+                  button={<SmallButtons text="XXI" color="linear-gradient(to right, rgb(239, 211, 5) , rgb(183, 156, 3))" size="13px" />}
+                  />
 
-                 <TimeBoxes screenname="2D" price="Rp. 50.000" num={t5.length} timearray={t5} />
+                 <TimeBoxes screenname="2D"  price={200} num={t5.length} timearray={t5}  theatrename={"PLAZA INDONESIA XXI"} />
                  
               </div>
               

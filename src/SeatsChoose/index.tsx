@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './style.css'
 import Navbar from '../Common/Navbar/navbar'
 import TitleText from '../Common/TitlesNText/titleText'
@@ -11,42 +11,59 @@ import Pricebox from './components/pricebox'
 import Footer from '../Common/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/loginContext'
+import { useSelector, useDispatch } from 'react-redux'
+import { setseats, settotalprice } from '../Redux/slice/seatsSlice'
 
 export default function Seats() {
 
    const [showdrop, setshowdrop] = useState(false)
+
+   const dispatch = useDispatch()
 
    const navigate = useNavigate(); // useNavigate hook for navigation
 
    const {isAuthenticated} = useContext(AuthContext)
 
    const goToAbout = () => {
-    
      isAuthenticated ?  navigate('/payment') : navigate('/login')
-
    };
 
 
    //getting seat number--------------------------------------------------------
    
-   const [chair,setchair] = useState<string | any>([])  //chairs array
-
+  const [chair,setchair] = useState<string | any>([])  //chairs array
 
   const handlechair = (elem : string) => {
+    let updatedChair;
+
     if (chair.includes(elem)) {
-     
-      setchair(chair.filter((item : string) => item !== elem));
+        // Remove elem from chair
+        updatedChair = chair.filter((item : any) => item !== elem);
     } else {
-     
-      setchair([...chair, elem]);
+        // Add elem to chair
+        updatedChair = [...chair, elem + " "];
     }
-    console.log(chair); 
+
+    // Update chair and dispatch the entire updated array to seats
+    setchair(updatedChair);
+    dispatch(setseats(updatedChair));
   };
 
    //total price of seats--------------------------------------------------------
-   
-   //FROM CHOOSE SCHEDULE
 
+   const money = useSelector((state : any)=>state.chooseSch.money)
+   
+   const [totalamt,settotal] = useState<number>(0)
+   
+   useEffect(()=>{
+    var totalprice = 0
+    for(var i = 0; i<=chair.length; i++){
+     var totalprice = money * i
+    }
+    settotal(totalprice)
+    dispatch(settotalprice(totalamt))
+   },[chair])
+  
 
   return (
     <div>
@@ -98,7 +115,7 @@ export default function Seats() {
         <div className='main'>
           <div className='pricedisplay-div'>
             
-            <Pricebox title="Total" content="Rp. 150.00" size="1.5rem"/>
+            <Pricebox title="Total" content={totalamt} size="1.5rem"/>
             <Pricebox title="Kursi" content={chair.map((ele : string)=>{return ele + " "})} size="1.5rem"/>
             
             <div className='inner-pricedisplay'>

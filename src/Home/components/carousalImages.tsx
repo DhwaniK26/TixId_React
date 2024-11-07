@@ -15,8 +15,10 @@ export default function CarousalImages({image,moviename} : TextType) {
   const dispatch = useDispatch()
   
   const handlemoviedata = ()=>{
-    dispatch(setmovie({name:moviename, poster:image}))? console.log("doneeeeeeeeee") : console.log('noooooooooooo')
-    
+    dispatch(setmovie({
+      name: moviename,
+      poster: image
+  })); 
   }
 
   return (
