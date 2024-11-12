@@ -1,44 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import './style.css'
-import MainArticle from './components/mainArticle'
-import { useLocation } from 'react-router-dom'
-import Navbar from '../Common/Navbar/navbar'
-import SmallMovieBars2 from '../Common/MovieBar/smallMovieBar2'
-import Footer from '../Common/Footer/footer'
-import MainVideo from './components/mainVideo'
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import MainArticle from "./components/mainArticle";
+import { useLocation } from "react-router-dom";
+import Navbar from "../Common/Navbar/navbar";
+import SmallMovieBars2 from "../Common/MovieBar/smallMovieBar2";
+import Footer from "../Common/Footer/footer";
+import MainVideo from "./components/mainVideo";
+import { data } from "../Data/articleData";
 
 export default function Article() {
+  const location = useLocation();
+  const { flag } = location.state || {}; // From News/sorting
 
-  const location = useLocation()
-  const {flag} = location.state || {}
-
-  const [screenshow, setscshow] = useState<JSX.Element | null>(null);
-
-  function random() {
-    
-    if(flag === 'spider'){
-      setscshow(<MainArticle />)
-    }else if(flag === 'spi-video'){
-      setscshow(<MainVideo />)
+  const renderContent = (flag: string) => {
+    switch (flag) {
+      case "spider":
+        return (
+          <MainArticle
+            title={data[0].title}
+            date={data[0].date}
+            imgshown={data[0].img}
+            content={data[0].content}
+          />
+        );
+      case "spi-video":
+        return <MainVideo />;
+      case "yow":
+        return (
+          <MainArticle
+            title={data[1].title}
+            date={data[1].date}
+            imgshown={data[1].img}
+            content={data[1].content}
+          />
+        );
+      default:
+        return null;
     }
-  }
-  useEffect(()=>{
-     random()
-  },[screenshow])
+  };
 
   return (
     <div>
-        <div className='main'>
-          <Navbar />
-        
-        <div className='article-holder'>
-            {screenshow}
+      <div className="main">
+        <Navbar />
+        <div className="article-holder">
+          {renderContent(flag)} {/* Directly rendering based on `flag` */}
         </div>
-
         <SmallMovieBars2 />
-        </div>
-
-        <Footer />
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }

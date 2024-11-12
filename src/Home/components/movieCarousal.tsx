@@ -3,18 +3,17 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../style.css";
-import Spider from './images/spider.png'
-import Yemen from './images/img2.png'
-import Gucci from './images/gucci.png'
-import ghost from './images/ghost.png'
+import Spider from "../../Assets/images/spider.png";
+import Yemen from "../../Assets/images/img2.png";
+import Gucci from "../../Assets/images/gucci.png";
+import ghost from "../../Assets/images/ghost.png";
 import CarousalImages from "./carousalImages";
 
-interface Arrows{
-  onClick?: ()=>void
+interface Arrows {
+  onClick?: () => void;
 }
 
-
-const NextArrow = ({ onClick } : Arrows) => {
+const NextArrow = ({ onClick }: Arrows) => {
   return (
     <div className="arrow next" onClick={onClick}>
       ❯
@@ -22,7 +21,7 @@ const NextArrow = ({ onClick } : Arrows) => {
   );
 };
 
-const PrevArrow = ({ onClick } : Arrows) => {
+const PrevArrow = ({ onClick }: Arrows) => {
   return (
     <div className="arrow prev" onClick={onClick}>
       ❮
@@ -31,7 +30,6 @@ const PrevArrow = ({ onClick } : Arrows) => {
 };
 
 const Carousel = () => {
-
   const settings = {
     dots: false,
     infinite: true,
@@ -51,23 +49,19 @@ const Carousel = () => {
   };
 
   return (
-   
-   <div className="outer-div">
-        <div className="carousel-container">
-          
-          <Slider {...settings}>
-            <CarousalImages image={Spider} moviename="Spiderman: No way Home"/>
-            
-            <CarousalImages image={Yemen} moviename="Yowis Ben Finale" />
+    <div className="outer-div">
+      <div className="carousel-container">
+        <Slider {...settings}>
+          <CarousalImages image={Spider} moviename="Spiderman: No way Home" />
 
-            <CarousalImages image={Gucci} moviename="House of Gucci" />
-             
-            <CarousalImages image={ghost} moviename="Ghostbusters: Afterlife"   />
-          </Slider>
-        </div>
+          <CarousalImages image={Yemen} moviename="Yowis Ben Finale" />
+
+          <CarousalImages image={Gucci} moviename="House of Gucci" />
+
+          <CarousalImages image={ghost} moviename="Ghostbusters: Afterlife" />
+        </Slider>
       </div>
-
-  
+    </div>
   );
 };
 

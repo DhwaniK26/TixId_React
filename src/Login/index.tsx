@@ -1,37 +1,38 @@
-import React, { useContext } from 'react'
-import './style.css'
-import { useNavigate } from 'react-router-dom'
-import LoginGrid from '../Common/Grid/loginGrid'
-import { AuthContext } from '../Context/loginContext'
+import React, { useContext } from "react";
+import "./style.css";
+import { useNavigate } from "react-router-dom";
+import LoginGrid from "../Common/Grid/loginGrid";
+import { AuthContext } from "../Context/loginContext";
 
 export default function Login() {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const { login, isAuthenticated } = useContext(AuthContext);
 
-  const {login} = useContext(AuthContext)
+  if (isAuthenticated) {
+    navigate("/");
+  }
 
   const handleLogin = () => {
-    login()
-    navigate('/'); 
+    login();
+    navigate("/");
   };
 
   return (
-    <div className='bglogin'>
-
-      <LoginGrid 
-        pagetitle={'Login to TIX ID'}
-        phonelabel={'MOBILE PHONE NUMBER'}
-        phoneholder={'+91 | Mobile Number'} 
-        passlabel={'PASSWORD'}
-        passholder={'Enter Password'}
-        buttonname={'Sign In Now'}
-        buttonname2={'Register Now'}
+    <div className="bglogin">
+      <LoginGrid
+        pagetitle={"Login to TIX ID"}
+        phonelabel={"MOBILE PHONE NUMBER"}
+        phoneholder={"+91 | Mobile Number"}
+        passlabel={"PASSWORD"}
+        passholder={"Enter Password"}
+        buttonname={"Sign In Now"}
+        buttonname2={"Register Now"}
         navto1={handleLogin}
-        navto2={()=>navigate('/signup')}
-        back={()=>navigate('/')}
+        navto2={() => navigate("/signup")}
+        back={() => navigate("/")}
         flag={true}
-      />      
-        
+      />
     </div>
-  )
+  );
 }

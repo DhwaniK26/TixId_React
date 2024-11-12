@@ -307,7 +307,7 @@ body{
 
 .inner-login{
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1.2fr 1.5fr;
     column-gap:8rem
 }
 
@@ -325,11 +325,11 @@ body{
 
 .login-col2{
     background-color: white;
-    width: 742px;
+    width: 700px;
 }
 
 .login-col2 .inner-login22{
-    margin: 5rem 3rem 3rem 3rem; ;
+    margin: 5rem 3rem 3rem 4rem; ;
     width: 60%;
 }
 
@@ -612,9 +612,14 @@ body{
         flex-direction: row;
         margin: 20px 0px;
         overflow-x: scroll;
+        scrollbar-width: none;
         width: inherit;
         justify-content: start;
     }
+
+    .threebig::-webkit-scrollbar {
+        display: none;       
+      }
     
     .threebig-inner{
         width: inherit;

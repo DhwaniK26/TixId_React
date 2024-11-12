@@ -1,15 +1,16 @@
-import React from 'react'
-import '../style.css'
+import React from "react";
+import "../style.css";
 
-interface ColorType{
-  bgcolor: string,
-  border: string
+interface ColorType {
+  bgcolor: string;
+  border: string;
 }
 
-export default function ColorBoxes({bgcolor,border} : ColorType) {
+export default function ColorBoxes({ bgcolor, border }: ColorType) {
   return (
-        <div className='colorBoxes' style={{"background" : bgcolor, "border": border}}>
-            
-        </div>
-  )
+    <div
+      className="colorBoxes"
+      style={{ background: bgcolor, border: border }}
+    />
+  );
 }

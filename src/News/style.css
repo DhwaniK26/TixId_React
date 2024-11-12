@@ -69,7 +69,7 @@
     pointer-events: none;
     width: 30px;  /* Set your desired width */
     height: 30px; /* Set your desired height */
-    background-image: url('../ChooseSch/components/images/search.png');
+    background-image: url('../Assets/images/search.png'); 
     background-size: contain; /* Makes the image fit within the width/height */
     background-repeat: no-repeat;
   }

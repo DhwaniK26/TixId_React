@@ -19,7 +19,7 @@ export default function MovieGrid({colrev,myimg,movname,movinfo,movdate,justc,my
          <img src={myimg}/>
       </div>
       <div className='mov-grid-sec'>
-        <SmMovBarbtn textname={'Spotlight'}   mycontent={mycontent}/>
+        <SmMovBarbtn textname={'Spotlight'}  mycontent={mycontent}/>
         <h1>{movname}</h1>
         <p className='c-ddgrey'>{movinfo}</p>
         

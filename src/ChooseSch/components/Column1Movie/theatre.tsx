@@ -1,39 +1,25 @@
-import React, { useEffect } from 'react'
-import './style.css'
-import SmallButtons from '../../../Common/Buttons/smallButtons'
-import Star from '../images/star.png'
+import React, { useEffect } from "react";
+import "./style.css";
+import Star from "../../../Assets/images/star.png";
 
-
-interface TheatType{
-  name: string,
-  button: JSX.Element
-  // handletheatre:(data : any)=>void
+interface TheatType {
+  name: string;
+  button: JSX.Element;
 }
 
-
-export default function Theatre({name,button} : TheatType) {
-
-  // useEffect(()=>{
-  //   handletheatre(name)
-  // },[])
-
+export default function Theatre({ name, button }: TheatType) {
   return (
     <div>
-
-      <div className='main-div'>
-  
-        <div className='star-div'>
+      <div className="main-div">
+        <div className="star-div">
           <img src={Star} height={32} width={32}></img>
           <p>{name}</p>
         </div>
-        
-        <div className='btn-div '>
-          {button}
-        </div>
-        
+
+        <div className="btn-div ">{button}</div>
       </div>
 
-      <p className='c-grey'>JL. MH. TAHMRIN NO.1</p>
+      <p className="c-grey">JL. MH. TAHMRIN NO.1</p>
     </div>
-  )
+  );
 }

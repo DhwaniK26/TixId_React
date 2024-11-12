@@ -11,11 +11,6 @@ export const AuthContext = createContext< AuthContextType | any>(undefined);
 
 const AuthProvider: React.FC <{ children: React.ReactNode }> = ({ children }) => {
 
-  // Initialize state from localStorage or default to false
-  // const [isAuthenticated, setIsAuthenticated] = useState(() => {
-  //   return localStorage.getItem('isAuthenticated') === 'true';
-  // });
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   
   useEffect(()=>{
@@ -28,7 +23,6 @@ const AuthProvider: React.FC <{ children: React.ReactNode }> = ({ children }) =>
     localStorage.setItem('isAuthenticated', 'true');
   };
 
-  
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated');
