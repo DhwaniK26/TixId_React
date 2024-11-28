@@ -43,9 +43,7 @@ export default function Article() {
     <div>
       <div className="main">
         <Navbar />
-        <div className="article-holder">
-          {renderContent(flag)} {/* Directly rendering based on `flag` */}
-        </div>
+        <div className="article-holder">{renderContent(flag)}</div>
         <SmallMovieBars2 />
       </div>
       <Footer />

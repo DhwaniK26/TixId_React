@@ -16,6 +16,8 @@ interface LoginType {
   navto2?: () => void;
   flag?: boolean;
   show?: boolean;
+  statefunc?: (data: any) => void;
+  statefunc2?: (data: any) => void;
 }
 
 export default function LoginGrid({
@@ -31,6 +33,8 @@ export default function LoginGrid({
   navto2,
   flag,
   show,
+  statefunc,
+  statefunc2,
 }: LoginType) {
   const navigate = useNavigate();
 
@@ -47,7 +51,11 @@ export default function LoginGrid({
 
             <div className="add-pass-div">
               <label className="w-400">{phonelabel}</label>
-              <input type="text" placeholder={phoneholder} />
+              <input
+                type="text"
+                placeholder={phoneholder}
+                onChange={(e) => statefunc?.(e.target.value)}
+              />
 
               <br></br>
               <br></br>
@@ -63,6 +71,7 @@ export default function LoginGrid({
                       style={{ display: "block" }}
                       type="text"
                       placeholder={passholder}
+                      onChange={(e) => statefunc2?.(e.target.value)}
                     />
                   </>
                 )}

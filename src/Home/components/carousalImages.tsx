@@ -2,7 +2,7 @@ import React from "react";
 import "../style.css";
 import SmallButtons from "../../Common/Buttons/smallButtons";
 import { setmovie } from "../../Redux/slice/homeSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 interface TextType {
@@ -12,11 +12,10 @@ interface TextType {
 
 export default function CarousalImages({ image, moviename }: TextType) {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   const handlemoviedata = () => {
-    navigate("./schedule");
+    navigate("/schedule");
     dispatch(
       setmovie({
         name: moviename,

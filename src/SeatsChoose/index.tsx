@@ -12,7 +12,7 @@ import Footer from "../Common/Footer/footer";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/loginContext";
 import { useSelector, useDispatch } from "react-redux";
-import { setseats, settotalprice } from "../Redux/slice/seatsSlice";
+import { setseats, settotalprice, settrue } from "../Redux/slice/seatsSlice";
 
 export default function Seats() {
   const [showdrop, setshowdrop] = useState(false);
@@ -24,11 +24,13 @@ export default function Seats() {
   const { isAuthenticated } = useContext(AuthContext);
 
   const seats = useSelector((state: any) => state.seats.seats);
+  const selected = useSelector((state: any) => state.chooseSch.selected);
 
   const goToAbout = () => {
     if (seats.length <= 0) {
       alert("Choose seats");
     } else {
+      dispatch(settrue(true));
       isAuthenticated ? navigate("/payment") : navigate("/login");
     }
   };
@@ -62,6 +64,8 @@ export default function Seats() {
   const [totalamt, settotal] = useState<number>(0);
 
   useEffect(() => {
+    selected ? navigate("/seats") : navigate("/schedule");
+
     var totalprice = 0;
     for (var i = 0; i <= chair.length; i++) {
       var totalprice = money * i;

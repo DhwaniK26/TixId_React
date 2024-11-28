@@ -4,6 +4,18 @@
     height: inherit;
 }
 
+/* App.css */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .fade-enter-active {
+    opacity: 9;
+    transform: translateY(0);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+
 @media (max-width:1000px) {
     .bglogin{
         padding: 3rem 1rem;

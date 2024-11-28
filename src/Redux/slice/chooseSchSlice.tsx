@@ -8,6 +8,7 @@ interface ChooseSchType {
   selecttime: {};
   money: number;
   year: number;
+  selected: boolean;
 }
 
 const initialState: ChooseSchType = {
@@ -21,6 +22,7 @@ const initialState: ChooseSchType = {
   },
   money: 0,
   year: new Date().getFullYear(),
+  selected: false,
 };
 
 const chooseSchSlice = createSlice({
@@ -45,6 +47,9 @@ const chooseSchSlice = createSlice({
     setmoney(state, action) {
       state.money = action.payload;
     },
+    settrue(state, action) {
+      state.selected = action.payload;
+    },
   },
 });
 
@@ -55,5 +60,6 @@ export const {
   setsrcreenname,
   settime,
   setmoney,
+  settrue,
 } = chooseSchSlice.actions;
 export const chooseSchreducer = chooseSchSlice.reducer;

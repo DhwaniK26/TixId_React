@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Navbar from "../Common/Navbar/navbar";
 import TitleText from "../Common/TitlesNText/titleText";
@@ -11,18 +11,21 @@ import Modal from "./Modal/modal";
 import PayModal from "./Modal/payModal";
 import ModalReturn from "./Modal/returnModal";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setpaytrue } from "../Redux/slice/restStateSlice";
 
 export default function Payment() {
   const [paymodal, setpaymodal] = useState(false);
   const [returnmodal, setreturnmodal] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const moviename = useSelector((state: any) => state.home.selectedMovie);
   const { date, weekday, screenName, time, money, year } = useSelector(
     (state: any) => state.chooseSch
   );
   const seats = useSelector((state: any) => state.seats.seats);
+  const selected = useSelector((state: any) => state.seats.selected);
 
   const len = seats.length;
 
@@ -31,6 +34,10 @@ export default function Payment() {
 
   //--------------total payment-----------------
   const totalpay = money * len + serData.service * len - serData.promo;
+
+  useEffect(() => {
+    selected ? navigate("/payment") : navigate("/seats");
+  }, []);
 
   return (
     <div>
@@ -146,7 +153,13 @@ export default function Payment() {
 
               <p className="warning">*Ticket purchases cannot be cancelled.</p>
 
-              <button className="sub-btn" onClick={() => navigate("/success")}>
+              <button
+                className="sub-btn"
+                onClick={() => {
+                  navigate("/success");
+                  dispatch(setpaytrue(true));
+                }}
+              >
                 BUY TICKETS
               </button>
             </div>

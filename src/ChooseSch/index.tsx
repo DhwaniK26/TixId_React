@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Common/Navbar/navbar";
 import Footer from "../Common/Footer/footer";
 import "./style.css";
@@ -14,6 +14,8 @@ import TimeBoxes from "./components/column1Movie/timeBoxes";
 import SpiderCard from "./components/column2/spiderCard";
 import FinalShow from "./components/column2/finalShow";
 import { list1, list2, list3, t1, t2, t3, t4, t5 } from "../Data/chooseSchdata";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Schedule() {
   const [drop, setdrop] = useState(false);
@@ -23,30 +25,22 @@ export default function Schedule() {
     setcityname(namegiven);
   };
 
-  //-------recieved date data from child---------------------------
-  // const [theatre, settheatre] = useState<any | null>(null)   //datedata has the date
-  // const handletheatre = (elem : string)=>{
-  //    settheatre(elem)
-  //    console.log("theatre name is heree",elem)
-  // }
+  const navigate = useNavigate();
 
-  //-------recieved time, price,screentime data from child----------------------------
+  const selected = useSelector((state: any) => state.home.selected);
 
-  // const [timePrice, settimePrice] = useState<any | null>([]);
+  useEffect(() => {
+    selected ? navigate("/schedule") : navigate("/");
+  }, []);
 
-  // const handletimePrice = (elem : any) => {
-  //   settimePrice(elem.time); // Only set the selected time, replacing any previous selection
-  //   console.log("thisssssssssss",elem.time)
-  // }
-  //--------
 
   return (
     <div>
       <div className="main">
         <Navbar />
         <TitleText
-          title="JADWAL"
-          subtitle="Pilih jadwal bioskop yang akan kamu tonton"
+          title="SCHEDULE"
+          subtitle="Select the cinema schedule that you want to watch"
         />
 
         {/* GRID START */}

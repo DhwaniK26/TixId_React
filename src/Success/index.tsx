@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Common/Navbar/navbar";
 import "./style.css";
 import Reel from "../Assets/images/reel.png";
 import Footer from "../Common/Footer/footer";
 import { useNavigate } from "react-router-dom";
+import { useSelector, UseSelector } from "react-redux";
 
 export default function Success() {
   const navigate = useNavigate();
 
+  const selected = useSelector((state: any) => state.rest.paymentSelect);
+
+  useEffect(() => {
+    selected ? navigate("/success") : navigate("/payment");
+  }, []);
   return (
     <div>
       <div className="main">
