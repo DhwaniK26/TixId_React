@@ -14,6 +14,18 @@
     transform: translateY(0);
     transition: opacity 0.5s, transform 0.5s;
   }
+
+/* Red background for error toast */
+.toast-error-red {
+  background-color: white !important; /* Toast background */
+  color: red !important; /* Text color for better readability */
+}
+
+/* White progress/loading line */
+.toast-progress-white {
+  background-color: red !important; /* Progress bar color */
+}
+
   
 
 @media (max-width:1000px) {

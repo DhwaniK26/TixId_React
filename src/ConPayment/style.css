@@ -69,7 +69,7 @@
 
 .rept-div{
   width: 500px;
-  height: 655px;
+  height: 555px;
   box-shadow: 0px 0px 5px 2px rgb(174, 173, 173) ;
   border-radius: 10px;
   padding: 2rem;
@@ -133,7 +133,17 @@ h5{
     font-weight: 500;
 }
 
-
+/* Red background for error toast */
+.toast-error-red {
+    background-color: white !important; /* Toast background */
+    color: red !important; /* Text color for better readability */
+  }
+  
+  /* White progress/loading line */
+  .toast-progress-white {
+    background-color: red !important; /* Progress bar color */
+  }
+  
 
 @media (max-width:1000px){
     .payment-grid{

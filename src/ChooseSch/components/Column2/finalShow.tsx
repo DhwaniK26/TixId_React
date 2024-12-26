@@ -22,8 +22,9 @@ export default function FinalShow() {
   const [say, setsay] = useState("none");
 
   useEffect(() => {
-    if (screenName != "" && time != "" && theatreName != "" && date != "") {
+    if (screenName != " " && time != " " && theatreName != " " && date != " ") {
       setsay("block");
+    } else {
     }
   }, [screenName, time, date, weekday, year, theatreName]);
 

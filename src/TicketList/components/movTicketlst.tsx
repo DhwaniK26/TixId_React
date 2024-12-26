@@ -27,7 +27,7 @@ export default function MovTicketlst({
           <img src={photu} />
         </div>
 
-        <div className="info-div">
+        <div className="infoo-div">
           <div>
             <h2 className="w-500">{moviename}</h2>
             <p className="c1-grey">{date}</p>

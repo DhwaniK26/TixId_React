@@ -53,6 +53,7 @@ export default function LoginGrid({
               <label className="w-400">{phonelabel}</label>
               <input
                 type="text"
+               
                 placeholder={phoneholder}
                 onChange={(e) => statefunc?.(e.target.value)}
               />

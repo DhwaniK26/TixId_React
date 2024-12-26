@@ -134,20 +134,21 @@ body{
 
 .threebig{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     margin: 20px 0px;
 }
 
 .threebig-inner{
-    width: 359px;
-    height: 642px;
+    width: 389px;
+    height: 700px;
     margin:  20px 2px;
 
 }
 
 .threebig-inner img{
     border-radius: 15px;
+    
 }
 
 .threebig-inner .text-div2{
@@ -340,7 +341,7 @@ body{
 .add-pass-div input{
     border: none;
     width: 100%;
-    padding: 10px 0px;
+    padding: 10px;
     border-bottom: 1px solid gray;
     font-size: 15px;
     margin-top:10px;
@@ -376,10 +377,32 @@ body{
     margin: 5rem 0px 0px 0px;
 }
 
+/*LOGOUT PAGE*/
+.logout-main{
+    height: 50px;
+    width: 130px;
+    padding: 5px;
+    display: flex;
+    gap:10px;
+    background-color: #1A2C50;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top : 10px;
+    right: -60px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.logout-par{
+    position: relative;
+}
 
 
 
-@media (max-width:900px){
+
+@media (max-width:1000px){
   
     /* NAVBAR */
     .navbar{
@@ -429,11 +452,22 @@ body{
     }
 
     .three{
-        display: flex;
-        flex-wrap: wrap;
+        /* display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
         justify-content: space-between;
         margin: 20px 0px;
-        /* height: 700px; */
+        overflow-x:scroll */
+
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        margin: 20px 0px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        width: inherit;
+        justify-content: start;
+        gap:20px
     }
 
     .threeBoxdiv{
@@ -441,6 +475,7 @@ body{
         flex-wrap: wrap;
         justify-content: space-between;
         margin: 5px 0px;
+        width: 300px;
         /* height: 700px; */
     }
     
@@ -460,8 +495,8 @@ body{
     }
 
     .threeBoxdiv div{
-        width: 100%;
-        height: 200px;
+        width: 300px;
+        height: 100px;
         margin:  10px 2px;
     }
 
@@ -585,7 +620,7 @@ body{
     .add-pass-div input{
         border: none;
         width: 100%;
-        padding: 10px 0px;
+        padding: 10px;
         border-bottom: 1px solid gray;
         font-size: 15px;
         margin-top:10px;
@@ -615,6 +650,7 @@ body{
         scrollbar-width: none;
         width: inherit;
         justify-content: start;
+        gap:20px;
     }
 
     .threebig::-webkit-scrollbar {
@@ -623,23 +659,24 @@ body{
     
     .threebig-inner{
         width: inherit;
-        height: 642px;
+        height: 542px;
         margin:  20px 2px;
     
     }
     
     .threebig-inner img{
         border-radius: 15px;
-        width: 380px;
-        height: 502px;
+        width: 340px;
+        height: 402px;
     }
     
     .threebig-inner .text-div2{
-        margin: 40px 0px;
+        margin: 20px 0px;
     }
     
     .threebig-inner .text-div2 h2{
         font-weight: 500;
+        font-size: 20px;
     }
     
     .text-div2 ul{
@@ -647,6 +684,29 @@ body{
         display: flex;
         margin:25px 0px;
         justify-content: flex-start;
+    }
+
+    .logout-main{
+        height: 30px;
+        width: 100px;
+    
+        padding: 5px;
+        display: flex;
+        gap:10px;
+        background-color: #1A2C50;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top : 7px;
+        right: -60px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 10px;
+        z-index: 1;
+    }
+
+    .logout-main p{
+        font-size: 20px
     }
 
     

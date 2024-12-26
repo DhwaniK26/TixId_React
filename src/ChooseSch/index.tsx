@@ -13,13 +13,15 @@ import Theatre from "./components/column1Movie/theatre";
 import TimeBoxes from "./components/column1Movie/timeBoxes";
 import SpiderCard from "./components/column2/spiderCard";
 import FinalShow from "./components/column2/finalShow";
-import { list1, list2, list3, t1, t2, t3, t4, t5 } from "../Data/chooseSchdata";
+import { list1, list2, t1, t2, t3, t4, t5 } from "../Data/chooseSchdata";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Half from "./components/half";
 
 export default function Schedule() {
   const [drop, setdrop] = useState(false);
-  const [cityname, setcityname] = useState("CITY");
+  const [cityname, setcityname] = useState("Gujarat");
+  const [searchbar, setsearch] = useState("");
 
   const handlecityname = (namegiven: string) => {
     setcityname(namegiven);
@@ -33,6 +35,16 @@ export default function Schedule() {
     selected ? navigate("/schedule") : navigate("/");
   }, []);
 
+  const date = useSelector((state: any) => state.chooseSch.date);
+
+  const locationSubmit = () => {
+    if (!date) {
+      alert("Please select a date before proceeding.");
+      return;
+    }
+
+    setdrop(!drop);
+  };
 
   return (
     <div>
@@ -49,13 +61,13 @@ export default function Schedule() {
           <div className="first-col1">
             {/* <ScrollBoxes handledatedata={handledatedata} /> */}
             <ScrollBoxes />
-            <hr></hr>
+            <hr className="time-hr"></hr>
 
-            <div className="loc-div">
+            <div className="loc-div" onClick={locationSubmit}>
               <img src={Location} height={32} width={32} />
               <h2>{cityname}</h2>
 
-              <button className="arrowbtn" onClick={() => setdrop(!drop)}>
+              <button className="arrowbtn">
                 <img src={Arrow} height={7.5} width={15} />
               </button>
 
@@ -74,81 +86,18 @@ export default function Schedule() {
 
             <div className="inp-drop1">
               <div className="input-container-f">
-                <input type="text" />
+                <input
+                  type="text"
+                  onChange={(e) => setsearch(e.target.value)}
+                />
               </div>
               <div className="dropdown-collect">
                 <Dropdowns data={list1} title="Studio" />{" "}
                 <Dropdowns data={list2} title="Sorting" />{" "}
-                <Dropdowns data={list3} title="Bioskop" />
               </div>
             </div>
 
-            <div>
-              <Theatre
-                name={"GRAND INDONESIA CGV"}
-                button={<SmallButtons text="CGV" color="red" size="13px" />}
-              />
-
-              <TimeBoxes
-                screenname="REGULAR 2D"
-                price={200}
-                num={t1.length}
-                timearray={t1}
-                theatrename="GRAND INDONESIA CGV"
-              />
-              <TimeBoxes
-                screenname="GOLD CLASS 2D"
-                price={200}
-                num={t2.length}
-                timearray={t2}
-                theatrename="GRAND INDONESIA CGV"
-              />
-              <TimeBoxes
-                screenname="VELVET 2D"
-                price={200}
-                num={t3.length}
-                timearray={t3}
-                theatrename="GRAND INDONESIA CGV"
-              />
-
-              <Theatre
-                name={"MANGGA DUA SQUARE CINÉPOLIS"}
-                button={
-                  <SmallButtons
-                    text="cinepolis"
-                    color="rgb(2, 2, 131)"
-                    size="13px"
-                  />
-                }
-              />
-
-              <TimeBoxes
-                screenname="2D"
-                price={200}
-                num={t4.length}
-                timearray={t4}
-                theatrename={"MANGGA DUA SQUARE CINÉPOLIS"}
-              />
-
-              <Theatre
-                name={"PLAZA INDONESIA XXI"}
-                button={
-                  <SmallButtons
-                    text="XXI"
-                    color="linear-gradient(to right, rgb(239, 211, 5) , rgb(183, 156, 3))"
-                    size="13px"
-                  />
-                }
-              />
-
-              <TimeBoxes
-                screenname="2D"
-                price={200}
-                num={t5.length}
-                timearray={t5}
-                theatrename={"PLAZA INDONESIA XXI"}
-              />
-            </div>
+            <Half search={searchbar} />
           </div>
 
           {/* SECOND GRID COL */}

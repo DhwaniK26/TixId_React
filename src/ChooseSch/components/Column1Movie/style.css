@@ -31,12 +31,15 @@
 /* TIMEBOXES */
 
 .show-main{
-   margin-top: 1rem
+   margin-top: 1rem;
+   width: 623px;
 }
+
 .shows{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width:100%
 }
 
 .shows h3{
@@ -50,35 +53,26 @@
     color: #5A637A;
 }
 
-.time-division{
-    display: flex;
-    align-items: center;
-    justify-content: start ;
-    flex-wrap: wrap;
-    width: 376px;
-    margin-top: 15px;
-}
+
 
 /* SMALL TIME BOX */
 
 .sm-timediv{
     border: 1px solid #5A637A;
     border-radius: 3px;
-    padding: 12px 20px;
+    padding: 10px;
     text-align: center;
     width: 77px;
     height: 40px;
-    margin:0px 15px 20px 0px;
+    margin:10px 15px 20px 0px;
     font-weight: 500;
-
+    cursor: pointer;
 }
 
 .sm-timediv:hover{
     color: white;
     background-color: #254075;
 }
-
-
 
 @media (max-width:1000px){
 
@@ -87,6 +81,7 @@
         font-size: 20px;
         font-weight: 500;
     }
+
 
     .shows h3{
         font-size: 18px;
@@ -97,5 +92,19 @@
         font-size: 14px;
     }
     
+    .show-main{
+        margin-top: 1rem;
+        margin-right: 20px;
+     }
+}
+
+
+@media (max-width:900px){
+
+    .show-main{
+        margin-right: 20px;
+    }
+    
 
 }
+

@@ -45,7 +45,7 @@ export default function Sorting({ nosort, setnosort }: SortType) {
               onClick={() => {
                 navigate("/article", { state: { flag: "spider" } });
               }}
-            >
+              >
               News
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function Sorting({ nosort, setnosort }: SortType) {
               onClick={() => {
                 navigate("/article", { state: { flag: "spi-video" } });
               }}
-            >
+              >
               Videos
             </p>
           </div>

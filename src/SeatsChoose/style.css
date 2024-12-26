@@ -97,11 +97,16 @@
    display: grid ;
    grid-template-columns: 1fr 1fr;
    column-gap: 4rem;
-   height: 372px;
+   height: 400px;
    width: 100%;  
-   justify-content: center;
+   justify-content: flex-start;
+   overflow-x: scroll;
 
 }
+
+.all-seats-grid::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
 
 /* SEAT COL ONE*/
 .inner-seats-div{
@@ -183,11 +188,6 @@
     border-radius: 5px;
     font-size: 17px;
 }
-
-
-
-
-
 
 
 

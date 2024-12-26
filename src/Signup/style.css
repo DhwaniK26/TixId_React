@@ -1,8 +1,26 @@
-.bglogin{
-    background: url('../Assets/images/b.png');
+.bglogin33{
+    background: url('../Assets/images/signupbg.png');
     padding: 3rem;
-    /* height: inherit ; */
+    height: 100vh ;
 }
+
+.bglogin2{
+  background: url('../Assets/images/emailbg.png');
+  padding: 3rem;
+  height: 100vh ;
+}
+
+/* Red background for error toast */
+.toast-error-red {
+    background-color: white !important; /* Toast background */
+    color: red !important; /* Text color for better readability */
+  }
+  
+  /* White progress/loading line */
+  .toast-progress-white {
+    background-color: red !important; /* Progress bar color */
+  }
+  
 
 @media (max-width:1000px) {
     .bglogin{

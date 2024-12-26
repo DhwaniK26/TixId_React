@@ -4,18 +4,16 @@ import Navbar from "../Common/Navbar/navbar";
 import TitleText from "../Common/TitlesNText/titleText";
 import Detailsec from "./component/detailsec";
 import Return from "../Assets/images/return.png";
-import ReptText from "../Common/TitlesNText/reptText";
-import Dana from "../Assets/images/dana.png";
 import Footer from "../Common/Footer/footer";
 import Modal from "./Modal/modal";
-import PayModal from "./Modal/payModal";
 import ModalReturn from "./Modal/returnModal";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setpaytrue } from "../Redux/slice/restStateSlice";
+import { settrue } from "../Redux/slice/seatsSlice";
+import SecondCol from "./component/secondCol";
 
 export default function Payment() {
-  const [paymodal, setpaymodal] = useState(false);
   const [returnmodal, setreturnmodal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,6 +34,7 @@ export default function Payment() {
   const totalpay = money * len + serData.service * len - serData.promo;
 
   useEffect(() => {
+    dispatch(settrue(true));
     selected ? navigate("/payment") : navigate("/seats");
   }, []);
 
@@ -93,77 +92,7 @@ export default function Payment() {
 
           {/* SECOND COL */}
 
-          <div className="rept-div">
-            <h2>Order Summary</h2>
-
-            <div className="inner-rept-div">
-              <h4>Transaction Details</h4>
-              <ReptText
-                seattype="REGULAR"
-                price={`Rs. ${money}`}
-                X={`X${len}`}
-              />
-              <ReptText
-                seattype="SERVICE FEE"
-                price={`Rs. ${serData.service}`}
-                X={`X${len}`}
-              />
-
-              <hr className="hr3"></hr>
-
-              <h4>Promo & Voucher</h4>
-              <ReptText
-                seattype="PROMO TIX ID"
-                price={`- Rs. ${serData.promo}`}
-              />
-
-              <hr className="hr3"></hr>
-
-              <ReptText
-                fontWeight={600}
-                seattype="Total Payment"
-                price={`- Rs. ${totalpay}`}
-              />
-
-              <hr></hr>
-
-              <div className="reptText">
-                <h3>Payment Methods</h3>
-                <h5
-                  onClick={() => setpaymodal(!paymodal)}
-                  style={{ cursor: "pointer" }}
-                >
-                  See All
-                </h5>
-                {paymodal ? (
-                  <Modal
-                    content={
-                      <PayModal close={paymodal} setclose={setpaymodal} />
-                    }
-                  />
-                ) : (
-                  ""
-                )}
-              </div>
-
-              <div className="mode-select">
-                <img src={Dana} height={20} width={55} />
-                <span>DANA</span>
-              </div>
-
-              <p className="warning">*Ticket purchases cannot be cancelled.</p>
-
-              <button
-                className="sub-btn"
-                onClick={() => {
-                  navigate("/success");
-                  dispatch(setpaytrue(true));
-                }}
-              >
-                BUY TICKETS
-              </button>
-            </div>
-          </div>
+          <SecondCol />
         </div>
       </div>
 

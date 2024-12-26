@@ -92,6 +92,7 @@
 @media (max-width:1000px) {
     .main{
         margin: 0px 20px;
+        
     }
 
     .mainart-div{
@@ -102,11 +103,13 @@
     .mainart-div h2{
         font-size: 25px;
         line-height: 2rem;
+        text-align: center;
     }
     
     .mainart-div h4{
         font-size: 1rem;
         line-height: 3rem;
+        text-align: center;
     }
     
     .mainart-div img{
@@ -121,6 +124,11 @@
     .mainart-div h3{
         margin: 1rem 0px;
         font-size: 30px;
+    }
+
+    .news-text{
+        width: 90%;
+        margin: auto;
     }
 
     .video-div{

@@ -11,6 +11,7 @@ import Spider1 from "../Assets/images/spider1.png";
 import Yow from "../Assets/images/yowis1.png";
 import SmallMovieBars2 from "../Common/MovieBar/smallMovieBar2";
 import Footer from "../Common/Footer/footer";
+import BtnCollect from "./components/btnCollect";
 
 export default function News() {
   const [showsort, setshowsort] = useState(false);
@@ -21,7 +22,34 @@ export default function News() {
     setScreenSize(window.innerWidth);
   };
 
+  const [newsdata, setnewsdata] = useState<any>(null);
+  const [sendarr, setsendarr] = useState<any>(null);
+
+  //------------------------------------------------------
+
+  const displayMovies = async () => {
+    await fetch(`http://127.0.0.1:4000/testing/news`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log("data of news that is not working", data);
+        if (data && data.allnews) {
+          const firstItem = data.allnews.slice(0, 2); // First two items
+          const remainingItems = data.allnews.slice(2); // The rest
+
+          setnewsdata(firstItem);
+          setsendarr(remainingItems);
+          console.log("news data:", newsdata);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
+    displayMovies();
     window.addEventListener("resize", handleResize);
 
     // Set prop value based on screen size
@@ -64,61 +92,30 @@ export default function News() {
           </div>
         </div>
 
-        <div className="btn-collect d-flex ">
-          <Circlebtn
-            text="Spiderman"
-            bor="1px solid #8F98AA"
-            fontcolor="#8F98AA"
-          />
-          <Circlebtn
-            text="Peter Parker"
-            bor="1px solid #8F98AA"
-            fontcolor="#8F98AA"
-          />
-          <Circlebtn
-            text="Yowis Ben"
-            bor="1px solid #8F98AA"
-            fontcolor="#8F98AA"
-          />
-          <Circlebtn
-            text="Ghostbusters"
-            bor="1px solid #8F98AA"
-            fontcolor="#8F98AA"
-          />
-          <Circlebtn
-            text="Film Indonesia"
-            bor="1px solid #8F98AA"
-            fontcolor="#8F98AA"
-          />
-          <Circlebtn text="Aksi" bor="1px solid #8F98AA" fontcolor="#8F98AA" />
-        </div>
+        <BtnCollect />
 
-        <MovieGrid
-          myimg={Spider1}
-          movname={"Spider-Man: No Way Home Releases New Trailer"}
-          movinfo={
-            "Spider-Man: No Way Home is a highly anticipated film by many. This film is a continuation of Peter Parker's story in ..."
-          }
-          movdate={"Nov 17, 2021 | TIX ID"}
-          justc={"flex-start"}
-          mycontent={"spider"}
-        />
+        {newsdata?.map((elem: any, index: number) => {
+          const isFirst = index === 0;
+          const isLast = index === newsdata.length - 1;
 
-        <MovieGrid
-          myimg={Yow}
-          movname={
-            "Facts About Yowis Ben Finale That You Need to Know Before Watching!"
-          }
-          movinfo={
-            "Film Yowis Ben Finale merupakan film akhir dari tetralogi film Yowis Ben. Film yang disutradai oleh Bayu Eko Moektito atau yang biasa ..."
-          }
-          movdate={"Nov 06, 2021 | TIX ID"}
-          colrev={propValue}
-          mycontent={"yow"}
-        />
+          return (
+            <MovieGrid
+              key={index}
+              myimg={elem.poster}
+              movname={elem.title}
+              movinfo={
+                "Spider-Man: No Way Home is a highly anticipated film by many. This film is a continuation of Peter Parker's story in ..."
+              }
+              movdate={elem.newsdate + " | TIX ID"}
+              justc={isFirst ? "flex-start" : undefined}
+              colrev={isLast ? propValue : undefined}
+              mycontent={elem.newsid}
+            />
+          );
+        })}
 
         <div className="mov-bars">
-          <SmallMovieBars2 />
+          <SmallMovieBars2 arr={sendarr} />
         </div>
       </div>
       <Footer />

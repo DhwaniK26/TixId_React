@@ -16,12 +16,15 @@ export default function FinalBill() {
   const navigate = useNavigate();
 
   const moviename = useSelector((state: any) => state.home.selectedMovie);
-  const { date, theatreName, screenName, time, money, year } = useSelector(
+  const { date, theatreName, screenName, money, year } = useSelector(
     (state: any) => state.chooseSch
   );
   const seats = useSelector((state: any) => state.seats.seats);
 
+  const time = useSelector((state: any) => state.chooseSch.selecttime.time);
+
   const seatlen = seats.length;
+  console.log("samay:", time);
 
   //---------------data------------------------------
   const serData = { service: 3, promo: 70 };

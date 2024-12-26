@@ -1,31 +1,38 @@
-import React, { createContext, useState, useEffect } from 'react';
-
+import React, { createContext, useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { clearAuthState, setdata } from "../Redux/slice/authSlice";
 
 interface AuthContextType {
   isAuthenticated: boolean;
-  login:()=>void
+  login: () => void;
   logout: () => void;
 }
 
-export const AuthContext = createContext< AuthContextType | any>(undefined);
+export const AuthContext = createContext<AuthContextType | any>(undefined);
 
-const AuthProvider: React.FC <{ children: React.ReactNode }> = ({ children }) => {
-
+const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  
-  useEffect(()=>{
-    const res = localStorage.getItem('isAuthenticated') === 'true';
-    setIsAuthenticated(res)
-  },[])
-  
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const res = localStorage.getItem("isAuthenticated") === "true";
+    setIsAuthenticated(res);
+  }, []);
+
   const login = () => {
     setIsAuthenticated(true);
-    localStorage.setItem('isAuthenticated', 'true');
+    localStorage.setItem("isAuthenticated", "true");
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('isAuthenticated');
+    // dispatch(setdata({ phonenumber: " " }));
+    dispatch(clearAuthState(" "));
+    localStorage.removeItem("token");
+    localStorage.removeItem("isAuthenticated");
   };
 
   return (
@@ -35,4 +42,4 @@ const AuthProvider: React.FC <{ children: React.ReactNode }> = ({ children }) =>
   );
 };
 
-export {AuthProvider }
+export { AuthProvider };

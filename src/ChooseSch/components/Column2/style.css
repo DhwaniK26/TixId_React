@@ -79,3 +79,66 @@
     border-radius: 10px;
     font-weight: 500;
 }
+
+@media (max-width:700px){
+    .spider-main{
+        width: 350px;
+        height: 593px;
+    }
+    
+   
+    .spider-main img{
+        width: 100%;
+        height: 374px;
+    }
+    
+    .final-card{
+        width: 350px;
+        height: 250px;
+        border-radius: 12px;
+        border: 1px solid #5A637A;
+        margin-top: 10px;
+        padding: 1rem 1rem;
+    }
+
+    .final-card h2{
+        font-size: 18px;
+        font-weight: 700;
+      }
+      
+      .final-card .p{
+          font-weight: 500;
+          font-size: 1rem;
+          margin-top: 2rem;
+      }
+      
+      .time{
+          display: flex;
+          justify-content: space-between;
+          margin-top: 1rem;
+          font-size: 1rem;
+          
+      }
+      
+      .time h3{
+          font-weight: 500;
+      }
+      
+      .small-text{
+          font-size: 10px;
+          margin: 20px 0px;
+      }
+      
+      .mybutton{
+          width: 100%;
+          height: 44px;
+          padding: 16px 12px;
+          background-color:#1A2C50;
+          color:#FFBE00 ;
+          font-size: 14px;
+          border: none;
+          border-radius: 10px;
+          font-weight: 500;
+      }
+    
+}

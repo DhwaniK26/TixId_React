@@ -19,7 +19,6 @@ export default function Togglebtn({ name, flag }: ToggleType) {
     <div>
       <button
         className="togglebtn c-lgrey"
-        onClick={() => navigate("/finalbill")}
         style={{ background: bgcolor }}
       >
         {name}

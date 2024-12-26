@@ -4,7 +4,7 @@ import "./style.css";
 import Reel from "../Assets/images/reel.png";
 import Footer from "../Common/Footer/footer";
 import { useNavigate } from "react-router-dom";
-import { useSelector, UseSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Success() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export default function Success() {
               your smartphone.
             </h4>
 
-            <button onClick={() => navigate("/ticketList")}>My Ticket</button>
+            <button onClick={() => navigate("/finalbill")}>My Ticket</button>
           </div>
         </div>
       </div>

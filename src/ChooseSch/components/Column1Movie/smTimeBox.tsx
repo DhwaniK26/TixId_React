@@ -15,6 +15,8 @@ interface SmType {
   screenname?: string;
   theatrename?: string;
   id?: string;
+  setcolor?: (id: any) => void;
+  isSelected?: boolean; // Pass the selected state
 }
 
 export default function SmTimeBox({
@@ -23,6 +25,8 @@ export default function SmTimeBox({
   screenname,
   theatrename,
   id,
+  setcolor,
+  isSelected,
 }: SmType): JSX.Element {
   const dispatch = useDispatch();
 
@@ -39,21 +43,31 @@ export default function SmTimeBox({
 
   const handlecolor = () => {
     dispatch(settime2(time));
+    console.log("samayyy", time);
     handleTime();
+    if (setcolor) {
+      setcolor(id);
+    }
   };
 
-  const isSelected = onetime.id === id;
-
   return (
-    <div
-      className="sm-timediv"
-      onClick={handlecolor}
-      style={{
-        backgroundColor: isSelected ? "#118EEA" : "",
-        color: isSelected ? "white" : "black",
-      }}
-    >
-      {time}
+    <div>
+      <div className="show-main">
+        <div className="shows">
+          <h3 className="c-grey">{screenname}</h3>
+          <p className="c-grey">Rs. {price}</p>
+        </div>
+      </div>
+      <div
+        className="sm-timediv"
+        onClick={handlecolor}
+        style={{
+          backgroundColor: isSelected ? "#118EEA" : "",
+          color: isSelected ? "white" : "black",
+        }}
+      >
+        {time}
+      </div>
     </div>
   );
 }

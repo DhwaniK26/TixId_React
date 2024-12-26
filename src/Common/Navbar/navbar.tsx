@@ -1,14 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import "../style.css";
 import Line from "../../Assets/images/line.png";
 import Bell from "../../Assets/images/bell.png";
 import TX from "../../Assets/images/tx.png";
 import { AuthContext } from "../../Context/loginContext";
+import { useSelector } from "react-redux";
+import Logout from "./logout";
 
 export default function Navbar() {
   const navigate = useNavigate();
 
+  const userlogo = useSelector((state: any) => state.signup.userlogo);
+  const firstletter = userlogo?.split("");
+
+  const [logoutcomp, setlogoutcomp] = useState<boolean>(false);
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
@@ -45,8 +51,16 @@ export default function Navbar() {
                   </li>
                 </>
               ) : (
-                <div className="profile" onClick={() => logout()}>
-                  A
+                <div
+                  className="profile"
+                  onClick={() => {
+                    setlogoutcomp(!logoutcomp);
+                  }}
+                >
+                  {firstletter[0]}
+                  <div className="logout-par">
+                    {logoutcomp ? <Logout /> : " "}
+                  </div>
                 </div>
               )}
             </ul>

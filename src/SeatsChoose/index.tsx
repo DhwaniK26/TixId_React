@@ -2,38 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import Navbar from "../Common/Navbar/navbar";
 import TitleText from "../Common/TitlesNText/titleText";
-import Clock from "../Assets/images/clock.png";
-import Arrowup from "../Assets/images/arrowup.png";
-import Droptime from "./components/droptime";
-import ColorBoxes from "./components/colorBoxes";
 import SeatCol from "./components/seatCol";
 import Pricebox from "./components/pricebox";
 import Footer from "../Common/Footer/footer";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../Context/loginContext";
 import { useSelector, useDispatch } from "react-redux";
 import { setseats, settotalprice, settrue } from "../Redux/slice/seatsSlice";
+import TwoButtons from "./components/twoButtons";
+import Timedrop from "./components/timedrop";
 
 export default function Seats() {
-  const [showdrop, setshowdrop] = useState(false);
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [first, setfirst] = useState<any>(null);
+  const [sec, setsec] = useState<any>(null);
+  const [unavilarr, setunavail] = useState<any>(null);
 
-  const navigate = useNavigate(); // useNavigate hook for navigation
-
-  const { isAuthenticated } = useContext(AuthContext);
-
-  const seats = useSelector((state: any) => state.seats.seats);
-  const selected = useSelector((state: any) => state.chooseSch.selected);
-
-  const goToAbout = () => {
-    if (seats.length <= 0) {
-      alert("Choose seats");
-    } else {
-      dispatch(settrue(true));
-      isAuthenticated ? navigate("/payment") : navigate("/login");
-    }
-  };
+  const getscreenname = useSelector((state: any) => state.chooseSch.screenName);
 
   //getting seat number--------------------------------------------------------
 
@@ -64,7 +49,7 @@ export default function Seats() {
   const [totalamt, settotal] = useState<number>(0);
 
   useEffect(() => {
-    selected ? navigate("/seats") : navigate("/schedule");
+    // selected ? navigate("/seats") : navigate("/schedule");
 
     var totalprice = 0;
     for (var i = 0; i <= chair.length; i++) {
@@ -73,6 +58,135 @@ export default function Seats() {
     settotal(totalprice);
     dispatch(settotalprice(totalamt));
   }, [chair]);
+
+  //----------------------------------------fetch----------------------------------
+
+  const loginData = {
+    userscreenname: getscreenname,
+  };
+
+  console.log("seat data", loginData);
+
+  const formData = new URLSearchParams(loginData);
+
+  const displayfunc = async () => {
+    await fetch(`http://127.0.0.1:4000/testing/seats`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded", // Set the content type to JSON
+      },
+      body: formData, // Replace this with your data
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((namedata) => {
+        console.log("seatkadata", namedata);
+        const midpoint = Math.floor(
+          (namedata.seatkadata.start_num + namedata.seatkadata.end_num) / 2
+        );
+
+        const firstPart = {
+          start: namedata.seatkadata.start_num,
+          end: midpoint,
+        };
+        const secondPart = {
+          start: midpoint + 1,
+          end: namedata.seatkadata.end_num,
+        };
+
+        const firstarr = namedata.seatkadata.row;
+        const secondarr = namedata.seatkadata.row;
+
+        setfirst({ firstPart, firstarr });
+        setsec({ secondPart, secondarr });
+
+        console.log("firsttttttttttttttt", first);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  //----------------avail---------------------------------------
+  const usermoviename = useSelector(
+    (state: any) => state.home.selectedMovie.name
+  );
+  const usertheatrename = useSelector(
+    (state: any) => state.chooseSch.theatreName
+  );
+  const userscreenname = useSelector(
+    (state: any) => state.chooseSch.screenName
+  );
+  const usertime =
+    useSelector((state: any) => state.chooseSch.selecttime.time) + ":00";
+
+  const date = useSelector((state: any) => state.chooseSch.date) || "5";
+
+  function formatDate(inputDate: string) {
+    const currentYear = new Date().getFullYear();
+    const fullDate = new Date(`${inputDate} ${currentYear}`);
+
+    const year = fullDate.getFullYear();
+    const month = String(fullDate.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+    const day = String(fullDate.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  const refinedDate = formatDate(date);
+
+  const divide = {
+    usermoviename,
+    usertheatrename,
+    userscreenname,
+    usertime,
+    userdate: refinedDate,
+  };
+
+  const formData2 = new URLSearchParams(divide); // Append the serialized data as a string
+
+  const seatunavail = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      // Checking if token exists
+      if (!token) {
+        console.log("No token found");
+        navigate("/login");
+        return;
+      }
+
+      const response = await fetch("http://127.0.0.1:4000/testing/seatavail", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData2,
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          console.log("Unauthorized access");
+          navigate("/login");
+          return;
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Seat availability data:", data);
+      setunavail(data.unavailable);
+      console.log("Updated unavailable array:", unavilarr);
+    } catch (error) {
+      console.error("Error fetching seat availability:", error);
+    }
+  };
+
+  useEffect(() => {
+    displayfunc();
+    seatunavail();
+  }, []);
 
   return (
     <div>
@@ -85,40 +199,25 @@ export default function Seats() {
         />
 
         <div className="seats-div">
-          <div className="time-div">
-            <div className="clock-div">
-              <img src={Clock} />
-              <span>14:10</span>
-              <img
-                src={Arrowup}
-                className="arrowdown"
-                onClick={() => setshowdrop(!showdrop)}
-              />
-
-              <div className="inner-clock">
-                {showdrop ? (
-                  <Droptime show={showdrop} showset={setshowdrop} />
-                ) : (
-                  ""
-                )}
-              </div>
-            </div>
-
-            <div className="color-div">
-              <ColorBoxes bgcolor="#1A2C50" border="none" />
-              <span>Theresa</span>
-              <ColorBoxes bgcolor="white" border="1px solid grey" />
-              <span>Empty Chair</span>
-              <ColorBoxes bgcolor="#118EEA" border="none" />
-              <span>Chosen</span>
-            </div>
-          </div>
+          <Timedrop />
 
           {/* SEATS SELECTION */}
 
           <div className="all-seats-grid">
-            <SeatCol start={1} end={10} handlechair={handlechair} />
-            <SeatCol start={11} end={20} handlechair={handlechair} />
+            <SeatCol
+              start={first ? first.firstPart.start : ""}
+              end={first ? first.firstPart.end : " "}
+              rows={first ? first.firstarr : []}
+              handlechair={handlechair}
+              unavailarr={unavilarr}
+            />
+            <SeatCol
+              start={sec ? sec.secondPart.start : ""}
+              end={sec ? sec.secondPart.end : " "}
+              rows={sec ? sec.secondarr : []}
+              handlechair={handlechair}
+              unavailarr={unavilarr}
+            />
           </div>
         </div>
       </div>
@@ -141,12 +240,7 @@ export default function Seats() {
             size="1.5rem"
           />
 
-          <div className="inner-pricedisplay">
-            <button onClick={() => navigate("/schedule")} className="cc-grey">
-              Return
-            </button>
-            <button onClick={goToAbout}>CONFIRM</button>
-          </div>
+          <TwoButtons />
         </div>
       </div>
 

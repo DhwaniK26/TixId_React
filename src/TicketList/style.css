@@ -105,6 +105,7 @@ hr{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin: 7px 0px;
 }
 
 .locsign-div span{
@@ -128,7 +129,7 @@ hr{
     width: 100%;  
 }
 
-.info-div{
+.infoo-div{
     display: grid;
     grid-template-columns: 5fr 2fr;
     line-height: 2.5rem;
@@ -166,6 +167,18 @@ hr{
 .outermost {
     min-height:600px;
     overflow-y: scroll;
+}
+
+.nodata-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.nodata-main img{
+    height: 400px;
+    width: 400px;
 }
 
 @media (max-width:1024px){

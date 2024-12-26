@@ -29,36 +29,42 @@
     color: white ;
 }
 
-/* 
-.smallbox p{
-    color:#7f889e
-} */
-
 
 /* SCROLL BOXES */
 
-.datebox{
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
-   width: 95%;
-   margin: 10px 0px;
+.extra{
+    display: flex;
    
 }
 
-.datebox button{
+.datebox{
+   display: flex;
+   /* flex-wrap: wrap; */
+   gap:20px;
+   justify-content: space-between;
+   width: 95%;
+   margin: 10px 0px;
+   overflow-x: scroll;
+   
+}
+
+.datebox::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+
+.sidebuttons{
    width: 32px;
    height: 32px;
    border: none;
-   margin-top: 1.5rem;
+   /* margin-top: 3rem; */
+   margin: 2.3rem 1rem 0rem 1rem;
    background: none;
    font-size: 20px;
 }
 
-.datebox button:hover{
+.sidebuttons:hover{
     border-radius: 4px;
     background-color: rgb(183, 180, 180);
-
 }
 
 hr {
@@ -78,6 +84,7 @@ hr {
 .loc-div h2{
     font-weight: 400;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .loc-div .inner-div{
@@ -96,6 +103,7 @@ hr {
     width: 285px;
     height: 350px;
     overflow: scroll;
+    cursor: pointer;
 }
 
 .arrowbtn{
@@ -121,6 +129,7 @@ hr {
 
 .dropdown .cities{
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .cities ul{
@@ -275,36 +284,56 @@ hr {
     width: 100% !important;
 }
 
-@media (min-width: 1000px) and (max-width: 1277px) {
-    .smallbox{
-        border: 1px solid #5A637A;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
-        line-height: 1.4rem;
-    }
-
-    .smallbox p{
-        font-size: 11px;
-    }
-
-    .smallbox h3{
-        font-size: 12px;
-    }
+.time-division{
+    display: flex;
+    align-items: center;
+    justify-content: start ;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
+
+/* LOADING IMAGE */
+.load-img{
+  min-height: 300px;
+  width: 500px;
+  opacity: 0.8;
+}
+
+.time-hr{
+    width: 100%;
+}
+
+
   
 
-@media (max-width:950px){
+@media (max-width:900px){
+    .first-col1{
+        max-width: 100%
+        
+        /* margin: auto; */
+    }
+
+    .extra{
+        width: 500px;
+    }
+
+    .time-hr{
+        width: 500px;
+    }
+
+   
+    
     .grid-class{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 0.9fr;
+        align-items: center;
     }
 
     .main {
         margin: 0px 20px; /* Global margin */
-       
     }
+
     .smallbox{
         border: 1px solid #5A637A;
         border-radius: 10px;
@@ -327,23 +356,24 @@ hr {
         cursor: pointer;
        }
 
-    .datebox{
+       .datebox{
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
+        gap:10px;
         justify-content: space-between;
-        width: 100%;
+        width: 95%;
         margin: 10px 0px;
-        
-     }
-     
-     .datebox button{
+        overflow-x: scroll;   
+       }
+
+     .sidebuttons{
         width: 32px;
         height: 32px;
         border: none;
-        margin-top: 1.5rem;
+        margin: 1.3rem 0rem 0rem 0rem;
         background: none;
         font-size: 20px;
-     }
+      }
 
     /* LOCATION SCROLL */
 
@@ -356,7 +386,7 @@ hr {
        width: 225px;
        height: 300px;
        overflow: scroll;
-   }
+     }
 
    .dropdown-inner h2{
      font-size: 14px;

@@ -16,7 +16,9 @@ export default function DropdownList({
   data,
   title,
 }: DropType) {
-  const dropdownRef = useRef<HTMLDivElement | null>(null); // Reference to the dropdown
+
+  
+  const dropdownRef = useRef <HTMLDivElement | null>(null); // Reference to the dropdown
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {

@@ -9,6 +9,8 @@ interface SmType{
   mycontent?:string
 }
 
+
+
 export default function SmMovBarbtn({textname,pad,fontsize,mycontent} : SmType) {
    
   const navigate = useNavigate()

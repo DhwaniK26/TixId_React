@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../style.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setdate, setweekday } from "../../Redux/slice/chooseSchSlice";
 
 interface SmallType {
@@ -18,8 +18,6 @@ export default function SmallBoxes({
   selected,
   onSelect,
 }: SmallType) {
-  // const [selected, setselected] = useState(false)
-
   const dispatch = useDispatch();
 
   const handledatedata = () => {
