@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import LoginGrid from "../Common/Grid/loginGrid";
 import { AuthContext } from "../Context/loginContext";
 import { ToastContainer, toast } from "react-toastify";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "react-toastify/ReactToastify.css";
 import { setdata, setuserlogo } from "../Redux/slice/authSlice";
@@ -45,14 +45,9 @@ export default function Login() {
         dispatch(setdata({ phonenumber: mytext }));
         dispatch(setuserlogo(checkeddata.username[0].username));
 
-        // Check token before storing
         if (checkeddata.token) {
           console.log("Token received:", checkeddata.token); // Log the token
           localStorage.setItem("token", checkeddata.token);
-
-          // Verify token was stored correctly
-          const storedToken = localStorage.getItem("token");
-          console.log("Token stored in localStorage:", storedToken);
 
           navigate("/");
         } else {

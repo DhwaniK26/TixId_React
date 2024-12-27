@@ -9,9 +9,8 @@ export default function FinalShow() {
   const navigate = useNavigate(); // useNavigate hook for navigation
   const dispatch = useDispatch();
 
-  const { screenName, time, date, weekday, year, theatreName } = useSelector(
-    (state: any) => state.chooseSch
-  );
+  const { screenName, selecttime, date, weekday, year, theatreName } =
+    useSelector((state: any) => state.chooseSch);
 
   const goToAbout = () => {
     dispatch(settrue(true));
@@ -22,11 +21,13 @@ export default function FinalShow() {
   const [say, setsay] = useState("none");
 
   useEffect(() => {
-    if (screenName != " " && time != " " && theatreName != " " && date != " ") {
-      setsay("block");
-    } else {
+    console.log(screenName, selecttime.time, theatreName, date);
+    if (!screenName || !selecttime.time || !theatreName || !date) {
+      setsay("none");
+      return;
     }
-  }, [screenName, time, date, weekday, year, theatreName]);
+    setsay("block");
+  }, [screenName, selecttime.time, date, theatreName]);
 
   return (
     <div className="final-card" style={{ display: say }}>
@@ -38,7 +39,7 @@ export default function FinalShow() {
 
       <div className="time">
         <h3>{screenName}</h3>
-        <h3>{time}</h3>
+        <h3>{selecttime.time}</h3>
       </div>
 
       <p className="c-grey small-text">

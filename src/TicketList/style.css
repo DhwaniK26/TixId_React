@@ -195,8 +195,27 @@ hr{
 
 }
 
+@media (max-width:900px){
+    .grid-secondcol {
+        padding:3rem 0px 3rem 2rem;
+    }
 
-@media (max-width:900px) {
+    .grid-firstcol {
+        background-color: rgb(238, 238, 238, 0.6);
+        padding: 2rem 0px 0px 2rem;
+        height: 80rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .movlst-outer {
+        width: 600px;
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width:750px) {
    .main{
       margin: 0px 0px 0px 10px;
    } 
@@ -257,11 +276,11 @@ hr{
     /* SECOND COL */
   
   .grid-secondcol{
-      padding: 3rem 2rem;
+      padding: 3rem 1rem;
   }
   
   .inner-secondcol p{
-      line-height: 3rem;
+      line-height: 2rem;
       font-weight: 400;
   }
   
@@ -286,15 +305,15 @@ hr{
       justify-content: center;
       text-align: center;
       width: 100%;
+      height: 400px;
   }
   
-  .info-div{
+  .infoo-div{
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 3fr 1fr;
       line-height: 2rem;
       width: 100%;
-     
   }
   
   .info-div div:last-child{
@@ -329,11 +348,26 @@ hr{
    .info-div h2{
      font-size: 20pz;
    }
-
-   .locsign-div{
-    margin-top: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}
+  
+     .locsign-div{
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content:center;
+  }
+  
+  .locsign-div2{
+     
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      margin: 7px 0px;
+      width: 100%;
+  }  
+   
+    .nodata-main img{
+        height: 300px;
+        width: 300px;
+    }
+  
 }

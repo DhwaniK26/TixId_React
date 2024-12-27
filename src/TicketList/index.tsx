@@ -17,6 +17,7 @@ import ends from "../Assets/images/ends.png";
 import Emptycomp from "./components/empty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAuthState } from "../Redux/slice/authSlice";
+import { setMovieData } from "../Redux/slice/ticketSlice";
 
 export default function TicketList() {
   const movieImages: { [key: string]: string } = {
@@ -27,59 +28,45 @@ export default function TicketList() {
     "It ends with us": ends,
   };
 
-  const [moviedata, setmoviedata] = useState<any>(null);
+ 
   const dispatch = useDispatch();
   const userphone = useSelector((state: any) => state.signup.phonenumber);
-  const [hasData, setHasData] = useState<boolean>(true);
 
   const loginData = {
     userphone: userphone,
   };
 
-  console.log("seat data", userphone);
-
   const formData = new URLSearchParams(loginData);
 
-  const mainarr: {
-    photu: string;
-    moviename: any;
-    date: any;
-    theatre: any;
-    screen: any;
-    done: any;
-  }[] = [];
+  const persistedMovieData = useSelector(
+    (state: any) => state.ticket.moviedata
+  );
 
+  // Modify the ticketshow function
   const ticketshow = async () => {
-    await fetch(`http://127.0.0.1:4000/testing/ticketlist`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formData,
-    })
-      .then((resp) => {
-        return resp.json();
-      })
-      .then((namedata) => {
-        console.log("ticket data", namedata);
+    try {
+      const response = await fetch(`http://127.0.0.1:4000/testing/ticketlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData,
+      });
 
-        if (namedata.message == " no user !") {
-          setHasData(false);
-          return;
-        }
+      const namedata = await response.json();
 
-        if (namedata.data.length == 0) {
-          setHasData(false);
-        } else {
-          setHasData(true);
-        }
+      if (namedata.message === " no user !") {
+        dispatch(setMovieData([])); // Update Redux instead of local state
+        return;
+      }
 
-        namedata.data.forEach((elem: any, index: number) => {
+      if (namedata.data.length === 0) {
+        dispatch(setMovieData([]));
+      } else {
+        const processedData = namedata.data.map((elem: any) => {
           const myimg = elem.moviename;
           const originalDate = elem?.date + "T" + elem?.time;
           const dateObj = new Date(originalDate);
-
-          // Format the date to the desired output
           const formattedDate = new Intl.DateTimeFormat("en-US", {
             weekday: "long",
             year: "numeric",
@@ -89,24 +76,23 @@ export default function TicketList() {
             minute: "2-digit",
           }).format(dateObj);
 
-          mainarr.push({
+          return {
             photu: movieImages[myimg],
             moviename: elem.moviename,
             date: formattedDate,
             theatre: elem.theatrename,
             screen: elem.screenname,
             done: elem.payment,
-          });
+          };
         });
-        setmoviedata(mainarr);
 
-        console.log("this is main array:", moviedata);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        dispatch(setMovieData(processedData));
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      dispatch(setMovieData([]));
+    }
   };
-
   const [option, setoption] = useState<string | null>("flag");
   const [isuser, setisuser] = useState<boolean | null>(true);
   const { isAuthenticated } = useContext(AuthContext);
@@ -121,22 +107,23 @@ export default function TicketList() {
   //   ticketshow();
   // }, [userphone]);
 
-  useEffect(() => {
-    if (!isAuthenticated || !userphone) {
-      setisuser(false);
-    } else {
-      setisuser(true);
-      ticketshow();
-    }
-  }, [isAuthenticated, userphone]);
+  // useEffect(() => {
+  //   if (!isAuthenticated || !userphone) {
+  //     setisuser(false);
+  //   } else {
+  //     setisuser(true);
+  //     ticketshow();
+  //   }
+  // }, [isAuthenticated, userphone]);
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      dispatch(clearAuthState(" "));
-    }
-  }, [isAuthenticated]);
+    // if (!isAuthenticated) {
+    //   dispatch(clearAuthState(" "));
+    // }
+    ticketshow();
+  }, []);
 
-  const filteredMovies = moviedata?.filter((movie: any) => movie.done);
+  const filteredMovies = persistedMovieData?.filter((movie: any) => movie.done);
 
   return (
     <div>
@@ -183,10 +170,9 @@ export default function TicketList() {
               <Circlebtn text="Voucher" />
             </div>
 
-
             {!isAuthenticated || !isuser ? (
               <NoData />
-            ) : !hasData ? (
+            ) : !persistedMovieData || persistedMovieData.length === 0 ? (
               <Emptycomp />
             ) : (
               <div className="movielist">
@@ -195,7 +181,7 @@ export default function TicketList() {
                       <MovTicketlst key={elem.id} {...elem} />
                     ))
                   : option === "flag2"
-                  ? moviedata?.map((elem: any) => (
+                  ? persistedMovieData?.map((elem: any) => (
                       <MovTicketlst key={elem.id} {...elem} />
                     ))
                   : null}

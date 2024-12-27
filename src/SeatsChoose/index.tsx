@@ -211,6 +211,7 @@ export default function Seats() {
               handlechair={handlechair}
               unavailarr={unavilarr}
             />
+            
             <SeatCol
               start={sec ? sec.secondPart.start : ""}
               end={sec ? sec.secondPart.end : " "}

@@ -36,6 +36,7 @@ export default function Payment() {
   useEffect(() => {
     dispatch(settrue(true));
     selected ? navigate("/payment") : navigate("/seats");
+    localStorage.getItem("token") ? navigate("/payment") : navigate("/login");
   }, []);
 
   return (

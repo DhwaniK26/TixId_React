@@ -6,6 +6,7 @@ import { restreducer } from "./slice/restStateSlice";
 import { authreducer } from "./slice/authSlice";
 import { paymentreducer } from "./slice/paymentSlice";
 import { persistStore, persistReducer } from "redux-persist";
+import { ticketreducer } from "./slice/ticketSlice";
 import storage from "redux-persist/lib/storage";
 // const store = configureStore({
 //   reducer: {
@@ -22,7 +23,15 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root", // Root key for your persisted state
   storage, // Specifies the storage (localStorage or sessionStorage)
-  whitelist: ["home", "chooseSch", "rest", "signup", "seats", "payment"], // Example: persist these slices
+  whitelist: [
+    "home",
+    "chooseSch",
+    "rest",
+    "signup",
+    "seats",
+    "payment",
+    "ticket",
+  ], // Example: persist these slices
 };
 
 const rootReducer = combineReducers({
@@ -32,6 +41,7 @@ const rootReducer = combineReducers({
   rest: restreducer,
   signup: authreducer,
   payment: paymentreducer,
+  ticket: ticketreducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

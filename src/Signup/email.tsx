@@ -56,6 +56,16 @@ export default function Email() {
             className: "toast-error-red", // Custom class for error background
             progressClassName: "toast-progress-white", // Custom class for progress bar
           });
+
+          if (namedata.token) {
+            console.log("Token received:", namedata.token); // Log the token
+            localStorage.setItem("token", namedata.token);
+
+            navigate("/");
+          } else {
+            console.error("No token received in login response");
+            toast.error("Authentication error");
+          }
         } else {
           toast.error(namedata.message, {
             className: "toast-error-red", // Custom class for error background

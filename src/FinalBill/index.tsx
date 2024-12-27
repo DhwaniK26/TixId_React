@@ -21,10 +21,10 @@ export default function FinalBill() {
   );
   const seats = useSelector((state: any) => state.seats.seats);
 
-  const time = useSelector((state: any) => state.chooseSch.selecttime.time);
+  const mytime = useSelector((state: any) => state.chooseSch.selecttime.time);
 
   const seatlen = seats.length;
-  console.log("samay:", time);
+  console.log("samay:", mytime);
 
   //---------------data------------------------------
   const serData = { service: 3, promo: 70 };
@@ -96,7 +96,7 @@ export default function FinalBill() {
 
                   <div>
                     <p className="c-grey">Time</p>
-                    <p>{time}</p>
+                    <p>{mytime}</p>
                   </div>
                 </div>
               </div>
